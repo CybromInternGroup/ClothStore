@@ -1,0 +1,17 @@
+
+
+
+
+
+
+.homeContainer{
+
+  background-image: url("../../data5.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+  background-size: cover;
+  height: 500px;
+  width: 100%;
+
+}
