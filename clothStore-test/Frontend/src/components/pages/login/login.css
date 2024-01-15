@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;1,200;1,300;1,500;1,600&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.form-container {
+    
+  display: flex;
+  justify-content: space-around ;
+  gap: 3vw;
+  align-items: center;
+  height: 100vh;
+  width:100%;
+  
+  background-color: white; /* Adjust background color as needed */
+}
+
+.img {
+  margin-left: 70px;
+  max-width: 40%;
+  height: auto;
+}
+
+.form-content {
+  /* flex-grow: 1; */
+  margin-left: 100px;
+  padding: 10px;
+  box-sizing: border-box; 
+  width:100% ;
+  line-height: 5px;
+  
+
+}
+
+.email {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-left: 4rem;
+}
+
+.btn {
+  /* background-color: #4CAF50;
+  color: white; */
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  height: 50%;
+}
+
+.social-buttons button {
+  width: 50%; /* Give some gap between the buttons */
+}
+
+
+.btn{
+  
+  background-color: #FFC107;
+  color: black;
+  width: 67%;
+  height: 40px;
+  text-align: center;
+  font-size: larger;
+  margin-left: 20px;
+}
+.btn:hover{
+  background-color: black;
+  color: white;
+}
+
+.email{
+  width: 50%;
+  background-color: white;
+  font-size: larger;
+  justify-content: center;
+  margin-left: 7rem;
+}
+
+/* .num{
+  width: 65%;
+  height: 30px;
+  margin: 15px; 
+ border: 0px ;
+ padding-left: 20px;
+ border-bottom: 2px solid rgb(160, 158, 158); 
+ /* position: absolute; Position the background text 
+ background-color: rgba(255, 255, 255, 0.2);  /* Adjust the alpha value for transparency 
+ font-size: 15px;
+
+}
+.form-content input:focus{
+  outline: none;
+  border-color:#FFC107;
+ }
+ .form-content input.transparent {
+     border: 1px solid #ccc;
+     padding: 5px;
+   } */
+
+.form-container h2{
+  width: 100%;
+  font-size: 30px;
+  
+}
+.or{
+  color: lightgrey;
+  margin-left: 95px;
+  
+}
+
+.submitbtn{
+  margin-left: 10px;
+  background-color: black;
+  color: white;
+  padding: 7px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.searchformfld{
+  position: relative;
+  margin: 5px 0px;
+}
+.searchformfld label{
+  position: absolute;
+  padding-left: 10px;
+  margin-left: -412px;
+  margin-top: 5px;
+  top:15px;
+  cursor: text;
+
+}
+.searchformfld input:focus + label,.searchformfld input:not(:placeholder-shown) + label{
+  opacity:0.5;
+  transform: scale(.9) translateY(-15px) translateX(-10px);
+  color:#000;
+}
+.searchformfld input:focus{
+outline: none;
+  border-color:#FFC107;
+}
+.searchformfld{
+  /* padding: 15px; */
+
+}
+.searchformfld input{
+width: 65%;
+height: 30px;
+margin: 15px; 
+border: 0px ;
+padding-left: 5px;
+border-bottom: 2px solid rgb(160, 158, 158); 
+/* position: absolute; Position the background text */
+background-color: rgba(255, 255, 255, 0.2);  /* Adjust the alpha value for transparency */
+font-size: 15px;
+}
+.searchformfld label,.searchformfld input{
+  transition: all 0.2s;
+  transition-timing-function: ease;
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+  opacity:1;
+}
+
+/* __________ */
+
+.searchformfld2{
+position: relative;
+margin: 5px 0px;
+}
+.searchformfld2 label{
+position: absolute;
+padding-left: 10px;
+margin-left: -412px;
+margin-top: 5px;
+top:15px;
+cursor: text;
+
+}
+.searchformfld2 input:focus + label,.searchformfld2 input:not(:placeholder-shown) + label{
+opacity:0.5;
+transform: scale(.9) translateY(-15px) translateX(-10px);
+color:#000;
+}
+.searchformfld2 input:focus{
+outline: none;
+border-color:#FFC107;
+}
+.searchformfld2{
+/* padding: 15px;
+margin:15px 0px; */
+}
+.searchformfld2 input{
+width: 65%;
+height: 30px;
+margin: 15px; 
+border: 0px ;
+padding-left: 5px;
+border-bottom: 2px solid rgb(160, 158, 158); 
+/* position: absolute; Position the background text */
+background-color: rgba(255, 255, 255, 0.2);  /* Adjust the alpha value for transparency */
+font-size: 15px;
+}
+.searchformfld2 label,.searchformfld2 input{
+transition: all 0.2s;
+transition-timing-function: ease;
+transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+opacity:1;
+}
