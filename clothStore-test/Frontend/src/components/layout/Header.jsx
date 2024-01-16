@@ -12,6 +12,7 @@ import { IoMdLogIn } from "react-icons/io";
 import { googleLogout } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../slices/userSlice";
+import Footer from "../pages/footer/Footer";
 
 
 const Header = () => {  
@@ -84,6 +85,8 @@ const searchout=()=>{
  }
 
     return <>
+
+
         <motion.div className="container" style={color?{backgroundColor:"black"}:{backgroundColor:'rgba(8, 8, 8, 0.49)'}} >
 
 
@@ -98,9 +101,12 @@ const searchout=()=>{
                     })}
               </ul>
            </div> 
+
+
+           
            <div className={match ? " hide" : " sideicons"}>
-                <input className="input2" type="text" id="searchinput"/>
-                <FaSearch className="icon" id="searchicon"  onClick={searchclick} onMouseOver={searchent} onMouseOut={searchout} />
+            <input className="input2" type="text" id="searchinput"/>
+           <FaSearch className="icon" id="searchicon"  onClick={searchclick} onMouseOver={searchent} onMouseOut={searchout} />
                 <FaShoppingCart className="icon" onClick={cartfilled} />
                {isLogin ? <CgProfile className="icon" /> : <IoMdLogIn  className="icon" onClick={()=>navigate("/login")}/> }
             </div>
@@ -114,7 +120,13 @@ const searchout=()=>{
   <button onClick={()=>{logout()}}>logout</button>
         </motion.div>
        
+
+
+                
+
+       
    <Outlet/>
+   <Footer/>
 
     </>
 }

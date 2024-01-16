@@ -1,14 +1,23 @@
 import "./ordersummery.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Ordersummery=()=>{
+
+    const navigate=useNavigate();
+
+    const paymentpage=()=>{
+        navigate('/payment')
+    }
 
     const [isAddressVisible, setAddressVisible] = useState(false);
     const Addresspage=()=>{
         setAddressVisible(!isAddressVisible);
 
     }
-
+    
+    
+   
     return(
         <>
         <div id="total-order-summary-page">
@@ -72,7 +81,7 @@ const Ordersummery=()=>{
                         <p className="Grand-total-pay">0</p>
                     </div>
                     <div>
-                        <button id="adress-payment-btn">CONTINUE</button>
+                        <button id="adress-payment-btn" onClick={paymentpage} >CONTINUE</button>
                     </div>
                 </div>
             </div>

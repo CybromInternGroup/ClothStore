@@ -9,6 +9,7 @@ import Tester from "./components/pages/Tester";
 import Forgotpassword from "./components/password/Forgotpassword";
 import Cart from "./components/pages/cart/Cart";
 import Ordersummery from "./components/pages/ordersummery/Ordersummery";
+import Payment from "./components/pages/payment/Payment";
 
 
 
@@ -29,6 +30,7 @@ const App = () => {
         <Route path={"/Blogs"} element={<Blogs />} />
         <Route path={"/cart"} element={<Cart/>}/>
         <Route path={"/ordersummery"} element={<Ordersummery/>}/>
+        <Route path={"/payment"} element={<Payment/>}/>
 
       </Route>
 

@@ -39,7 +39,7 @@
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap:2.5%;
+    gap:2%;
     align-items: center;
     justify-content: center;
 
@@ -58,22 +58,29 @@
     align-items: center;
     justify-content: center;
     gap: 10%;
-    margin-left: 150px;
+    margin-left: 190px;
+    z-index: 120;
 }
 .icon{
    color: #fff;
     font-size: 3rem;
+    z-index: 110;
 }
 
 #searchicon{
-    position: absolute;
-    margin-left: -45rem;
+ 
+}
+
+.search-container{
+
+  margin-left: 200px;
+
 }
 
 .input2{
     border: none;
     position: absolute;
-    margin-left: -305px;
+    margin-left: -240px;
     margin-top: -1px;
     width: 0px;
     height: 35px;
