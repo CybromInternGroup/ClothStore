@@ -15,118 +15,121 @@ import { userLogout } from "../../slices/userSlice";
 import Footer from "../pages/footer/Footer";
 
 
-const Header = () => {  
+const Header = () => {
 
     const dispatch = useDispatch()
-  
-    const isLogin = useSelector((state)=>state.user.isLogin);
-const navigate = useNavigate()
-const match = useMediaQuery('(max-width: 768px)')
-const [userEmail, setUserEmail] =  useState("")
-const [profilePic,setProfilePic] = useState("")
 
-const [color , setcolor] = useState(false)
+    const isLogin = useSelector((state) => state.user.isLogin);
+    const navigate = useNavigate()
+    const match = useMediaQuery('(max-width: 768px)')
+    const [userEmail, setUserEmail] = useState("")
+    const [profilePic, setProfilePic] = useState("")
 
-
-window.addEventListener("scroll",()=>{
-  
-    if(window.scrollY>=170){
-    setcolor(true)
-    }
-    else{
-        setcolor(false)
-    }
-})
-
-useEffect(()=>{
-
-    setUserEmail(window.sessionStorage.getItem("email"))
-    setProfilePic(window.sessionStorage.getItem("image"))
-
-},[userEmail])
+    const [colorset, setcolor] = useState(false)
     
-const logout = ()=>{
-    dispatch(userLogout()) 
-    googleLogout()
-  
-}
 
-const cartfilled=()=>{
-    navigate("/cart")
-}   
 
-let clickdisable=false;
-const searchent=()=>{
- const st=document.getElementById('searchinput');
- st.style.backgroundColor="#FFC107";
- st.style.width="150px";
- st.style.opacity="1";
- st.style.transition="all 0.5s ease";
- st.style.outline="none";
-        
-}
-const searchout=()=>{
-  if(!clickdisable){
-  const st=document.getElementById('searchinput');
-  st.style.width="0px";
-  st.style.opacity="0";
-  st.style.outline="none";
-}
-  // st.style.transition="all 0.5s ease";             
- }
+    window.addEventListener("scroll", () => {
 
- const searchclick=()=>{
-  clickdisable=true;
-  const st=document.getElementById('searchinput');
-  st.focus();
-  st.style.outline="none";
-  
-  
- }
+        if (window.scrollY >= 170) {
+            setcolor(true)
+        }
+        else {
+            setcolor(false)
+        }
+    })
+
+    useEffect(() => {
+
+        setUserEmail(window.sessionStorage.getItem("email"))
+        setProfilePic(window.sessionStorage.getItem("image"))
+
+    }, [userEmail])
+
+    const logout = () => {
+        dispatch(userLogout())
+        googleLogout()
+
+    }
+
+    const cartfilled = () => {
+        navigate("/cart")
+    }
+
+    let clickdisable = false;
+    const searchent = () => {
+        const st = document.getElementById('searchinput');
+        st.style.backgroundColor = "#FFC107";
+        st.style.width = "150px";
+        st.style.opacity = "1";
+        st.style.transition = "all 0.5s ease";
+        st.style.outline = "none";
+
+    }
+    const searchout = () => {
+        if (!clickdisable) {
+            const st = document.getElementById('searchinput');
+            st.style.width = "0px";
+            st.style.opacity = "0";
+            st.style.outline = "none";
+        }
+        // st.style.transition="all 0.5s ease";             
+    }
+
+    const searchclick = () => {
+        clickdisable = true;
+        const st = document.getElementById('searchinput');
+        st.focus();
+        st.style.outline = "none";
+
+
+    }
+
+   
 
     return <>
 
 
-        <motion.div className="container" style={color?{backgroundColor:"black"}:{backgroundColor:'rgba(8, 8, 8, 0.49)'}} >
+        <motion.div className="container" style={colorset ? { backgroundColor: "black" } : { backgroundColor: 'transparent' }} >
 
 
-            <div className="logo">
-                <h1>As fashion</h1>
-            </div>
-            <div className={match ? "hide" : "navlinks"}>
-              <ul className="linkcontainer">
-                  {links.map((key, idx) => {
-                        return <Link style={{textDecoration:"none"}} to={key}><li >{key}</li></Link>
+            <motion.div className="logo">
+                <motion.h1 style={colorset?{color:"white"}:{color:"black"}}>As fashion</motion.h1>
+            </motion.div>
+            <motion.div className={match ? "hide" : "navlinks"}>
+                <ul className="linkcontainer">
+                    {links.map((key, idx) => {
+                        return <Link style={{ textDecoration: "none" }} to={key}><li style={colorset?{color:"white"}:{color:"black"}} >{key}</li></Link>
 
                     })}
-              </ul>
-           </div> 
+                </ul>
+            </motion.div>
+
+            
+
+            <motion.div className={match ? " hide" : " sideicons"}>
+                <input className="input2" type="text" id="searchinput" />
+                <FaSearch style={colorset?{color:"white"}:{color:"black"}} className="icon" id="searchicon" onClick={searchclick} onMouseOver={searchent} onMouseOut={searchout} />
+                <FaShoppingCart style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={cartfilled} />
+                {isLogin ? <CgProfile style={colorset?{color:"white"}:{color:"black"}} className="icon" /> : <IoMdLogIn style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/login")} />}
+            </motion.div>
 
 
-           
-           <div className={match ? " hide" : " sideicons"}>
-            <input className="input2" type="text" id="searchinput"/>
-           <FaSearch className="icon" id="searchicon"  onClick={searchclick} onMouseOver={searchent} onMouseOut={searchout} />
-                <FaShoppingCart className="icon" onClick={cartfilled} />
-               {isLogin ? <CgProfile className="icon" /> : <IoMdLogIn  className="icon" onClick={()=>navigate("/login")}/> }
-            </div>
+            <Popup />
+            {isLogin && <h1>{userEmail}</h1>}
+            {isLogin && <img src={profilePic} alt="not" />}
+            {console.log(profilePic)}
 
-
-           <Popup/>
-           {isLogin &&<h1>{userEmail}</h1>}
-           {isLogin &&  <img src={profilePic} alt="not" />}
-           {console.log(profilePic)}
-          
-  <button onClick={()=>{logout()}}>logout</button>
+            <button onClick={() => { logout() }}>logout</button>
         </motion.div>
-       
 
 
-                
 
-       
-   <Outlet/>
-   <Footer/>
+
+
+
+        <Outlet />
+        <Footer />
 
     </>
 }

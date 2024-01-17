@@ -35,11 +35,14 @@ return <>
 showDots={true}
 swipeable={true}
 infinite={true}
+autoPlay={true}
+autoPlaySpeed={2000}
+transitionDuration={500}
 >
  {slider.map((key,id)=>{
-console.log("../../")
+//console.log("../../")
 
-return  <div className="sliderContainer" style={{backgroundImage:`url(https://manyavar.scene7.com/is/image/manyavar/Hero_banner_2_HP_D_GMSQUARD_06-06-2023-07-29?$WT%5FHP%2FMLP%2FWLP%5FHero%5FD$)`}} > </div>
+return  <div className="sliderContainer" style={{backgroundImage:`url(${key}`}} > </div>
  })}
  
 </Carousel>;

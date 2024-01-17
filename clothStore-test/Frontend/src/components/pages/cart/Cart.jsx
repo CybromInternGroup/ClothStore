@@ -71,13 +71,7 @@ const Cart=()=>{
                                         <option>4</option>
 
                                         <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-
-                                        <option>9</option>
-
-                                        <option>10</option>
+                                        
 
                                     </select>
                                     {/* <!-- qty end  --> */}
@@ -94,7 +88,8 @@ const Cart=()=>{
                     {/* <!-- cart-desc-img-end --> */}
                     <hr/>
                     <div id="remove-wishlist">
-                        <div>Remove</div>  
+                        <div>Remove</div> 
+                        <div>Add to Whishlist</div> 
                     </div>
                 </div>
                 {/* <!-- cart-push-prdt end --> */}
