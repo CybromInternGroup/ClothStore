@@ -6,8 +6,15 @@ import img4 from "./img/4.webp"
 import img5 from "./img/5.webp"
 import img6 from "./img/6.webp"
 import img7 from "./img/7.webp"
+import { useNavigate } from "react-router-dom"
 
 const Products = ()=>{
+
+    const navigate=useNavigate();
+
+    const gotoshowproduct=()=>{
+        navigate('/showproduct')
+    }
 
     return (
     <> 
@@ -36,32 +43,33 @@ const Products = ()=>{
     <!-- side filter start --> */}
     <br/> <br/>
     <div className="Number_of_Cat_item_and_name">
-        <a href=""><h2 style={{color: "#ffc107",  position: "fixed" ,borderBottom:" 2px solid #ffc107"}}>Jackets for Men</h2></a>
+        <a href=""><h2 style={{color: "#ffc107" ,borderBottom:" 2px solid #ffc107"}}>Jackets for Men</h2></a>
         
-            <select name="" id="sortPrice">
+            {/* <select name="" id="sortPrice">
                 <option value="popular"> Sort By: Popular</option>
                 <option value="new">New</option>
                 <option value="high">Price :High to Low</option>
                 <option value="low">Price :Low to High</option>
-            </select>
+            </select> */}
     </div>
     <div className="product_item_left_nav">
         <div className="left_filter_nav">
             <ul>
                 <h5>Filters</h5>
                 <li><a href="">Size</a><a href=""><i className="fas fa-chevron-circle-down"></i>
+                 <hr className="hrline"/>
                   <div className="sub_item">
                     <ul>
-                        <li><a href="">Xs</a></li>
-                        <li><a href="">S</a></li>
-                        <li><a href="">M</a></li>
-                        <li><a href="">L</a></li>
-                        <li><a href="">XL</a></li>
+                        <li><input type="checkbox" /><a href="">Xs</a>  </li>
+                        <li><input type="checkbox" /><a href="">S</a></li>
+                        <li><input type="checkbox" /><a href="">M</a></li>
+                        <li><input type="checkbox" /><a href="">L</a></li>
+                        <li><input type="checkbox" /><a href="">XL</a></li>
                     </ul>
                   </div>
                 </a>
              </li>
-                <li><a href="">Brand</a><a href=""><i className="fas fa-chevron-circle-down"></i></a>
+                {/* <li><a href="">Brand</a><a href=""><i className="fas fa-chevron-circle-down"></i></a>
                     <div className="sub_item">
                         <ul>
                             
@@ -71,15 +79,16 @@ const Products = ()=>{
                             <li><a href="">Sweet Dream</a></li>
                             <li><a href="">Recap</a></li>
                         </ul>
-                      </div></li>
+                      </div></li> */}
 
-                <li><a href="">Sort By</a><a href=""><i className="fas fa-chevron-circle-down"></i></a>
+                <li><a href="">Sort_By</a><a href=""><i className="fas fa-chevron-circle-down"></i></a>
+                <hr className="hrline"/>
                     <div className="sub_item">
                         <ul>
-                            <li><a href="">Popular</a></li>
-                            <li><a href="">New</a></li>
-                            <li><a href="">Price:High To Low</a></li>
-                            <li><a href="">Price :Low to Hogh</a></li>
+                            <li><input type="checkbox" /><a href="" >Popular</a></li>
+                            <li><input type="checkbox" /><a href="">New</a></li>
+                            <li><input type="checkbox" /><a href="">Price:High To Low</a></li>
+                            <li><input type="checkbox" /><a href="">Price :Low to Hogh</a></li>
                         </ul>
                       </div>
                     </li>
@@ -88,7 +97,7 @@ const Products = ()=>{
     
         <div className="product_item_box">
                
-                <div>
+                <div onClick={gotoshowproduct}>
                     <img src={img1} alt=""/>
                     <h6>Men's Black & Grey Color Block</h6>
                     <ul><li><p>₹1299</p> <p></p></li></ul>
