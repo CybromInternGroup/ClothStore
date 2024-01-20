@@ -111,7 +111,7 @@ const Header = () => {
                 <input className="input2" type="text" id="searchinput" />
                 <FaSearch style={colorset?{color:"white"}:{color:"black"}} className="icon" id="searchicon" onClick={searchclick} onMouseOver={searchent} onMouseOut={searchout} />
                 <FaShoppingCart style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={cartfilled} />
-                {isLogin ? <CgProfile style={colorset?{color:"white"}:{color:"black"}} className="icon" /> : <IoMdLogIn style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/login")} />}
+                {isLogin ? <CgProfile style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/homesider")} /> : <IoMdLogIn style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/login")} />}
             </motion.div>
 
 

@@ -11,6 +11,7 @@ import Cart from "./components/pages/cart/Cart";
 import Ordersummery from "./components/pages/ordersummery/Ordersummery";
 import Payment from "./components/pages/payment/Payment";
 import Showproduct from "./components/pages/showproduct/Showproduct";
+import Homesider from "./components/homesider/Homesider";
 
 
 
@@ -33,6 +34,7 @@ const App = () => {
         <Route path={"/ordersummery"} element={<Ordersummery/>}/>
         <Route path={"/payment"} element={<Payment/>}/>
         <Route path={"/showproduct"} element={<Showproduct/>}/>
+        <Route path={"/homesider"} element={<Homesider/>}/>
 
       </Route>
 
