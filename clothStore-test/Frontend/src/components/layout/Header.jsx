@@ -85,7 +85,18 @@ const Header = () => {
 
     }
 
-   
+
+    const [isOpen, setIsOpen] = useState(false);
+    // const [selectedOption, setSelectedOption] = useState(null);
+  
+    const toggleDropdown = () => {
+      setIsOpen(!isOpen);
+    };
+  
+    // const handleOptionClick = (option) => {
+    //   setSelectedOption(option);
+    //   setIsOpen(false);
+    // };
 
     return <>
 
@@ -111,7 +122,23 @@ const Header = () => {
                 <input className="input2" type="text" id="searchinput" />
                 <FaSearch style={colorset?{color:"white"}:{color:"black"}} className="icon" id="searchicon" onClick={searchclick} onMouseOver={searchent} onMouseOut={searchout} />
                 <FaShoppingCart style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={cartfilled} />
-                {isLogin ? <CgProfile style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/homesider")} /> : <IoMdLogIn style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/login")} />}
+                {isLogin ?  <CgProfile style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={toggleDropdown}/> : <IoMdLogIn style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/login")} />}
+            
+                {/* <div className="dropdown-container"> */}
+      {/* <div className="dropdown-header" onClick={toggleDropdown}> */}
+        {/* {selectedOption ? selectedOption : ''} */}
+      {/* </div> */}
+      {isOpen && (
+        <div className="dropdown-options">
+          <div onClick={()=> navigate('/myaddress')} >My Address</div>
+          <div onClick={()=> navigate('/myorder')} >My Orders</div>
+          <div onClick={()=> navigate('/mypayment')} >My Payments</div>
+          <div onClick={()=> navigate('/myinfo')} >My Info</div>
+          <div>Logout</div>
+        </div>
+      )}
+
+
             </motion.div>
 
 

@@ -93,9 +93,56 @@
       }
 
 
+/* ------------Dropdown------ */
 
-
-
+.dropdown-options {
+    position: absolute;
+    z-index: 500;
+    top: 100%;
+    left: 85%;
+    width: 15%;
+    max-height: 150px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* display: none; */
+    animation: fadeIn 0.3s ease-out;
+    /* opacity: 0; */
+    /* transform: translateX(20px); /* Start from the right 
+    transition: opacity 0.3s ease, transform 0.3s ease; */
+  }
+  
+  .dropdown-options div {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .dropdown-options div:hover {
+    background-color: #FFC107;
+    color: black;
+  }
+  
+  .dropdown-options.show {
+    display: block;
+  opacity: 1;
+  transform: translateX(0); /* Move to the left */
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px); /* Start from the right */
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0); /* Move to the left */
+    }
+  }
+  
 
 .bars{
    margin-right: 20px;

@@ -1,0 +1,22 @@
+
+.orderdiv{
+    display: flex;
+    background-color: white;
+    padding: 20px;
+    margin-top: 10%;
+}
+
+.orderdiv:nth-child(2){
+    background-color: aquamarine;
+}
+
+#cancelbtn{
+    padding-left: 15px;
+    background-color: red;
+    margin-right: 30px;
+    /* margin-left: 15px; */
+}
+
+#Pro-detail{
+    padding-left: 20px;
+}

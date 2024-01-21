@@ -1,4 +1,4 @@
-// import "../Css/profileInfo.css"
+import "./profileInfo.css"
 const ProfileInfo = ()=>{
     return (
         <> 
@@ -29,7 +29,7 @@ Hey there! Fill in your details for a personalized AJIO shopping experience.</p>
       <label id="radio"><input type="radio" name="gender" value="female" /> Female</label><br/>
     </div>
 
-        <button className="btn">Update</button>
+        <button className="myprofilebtn">Update</button>
    </div>
        </div>
         </>

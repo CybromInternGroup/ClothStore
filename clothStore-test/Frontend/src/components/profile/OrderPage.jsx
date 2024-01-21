@@ -1,4 +1,4 @@
-// import "../Css/OrderPage.css"
+import "./OrderPage.css"
 
 const OrderPage = ()=>{
     return (

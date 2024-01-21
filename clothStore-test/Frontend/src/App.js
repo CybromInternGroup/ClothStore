@@ -12,6 +12,10 @@ import Ordersummery from "./components/pages/ordersummery/Ordersummery";
 import Payment from "./components/pages/payment/Payment";
 import Showproduct from "./components/pages/showproduct/Showproduct";
 import Homesider from "./components/homesider/Homesider";
+import Address from "./components/profile/Myaddress";
+import OrderPage from "./components/profile/OrderPage";
+import ProfilePayment from "./components/profile/ProfilePayment";
+import ProfileInfo from "./components/profile/ProfileInfo";
 
 
 
@@ -35,6 +39,11 @@ const App = () => {
         <Route path={"/payment"} element={<Payment/>}/>
         <Route path={"/showproduct"} element={<Showproduct/>}/>
         <Route path={"/homesider"} element={<Homesider/>}/>
+        <Route path={"/myaddress"} element={<Address/>}/>
+        <Route path={"/myorder"} element={<OrderPage/>}/>
+        <Route path={"/mypayment"} element={<ProfilePayment/>}/>
+        <Route path={"/myinfo"} element={<ProfileInfo/>}/>
+
 
       </Route>
 
