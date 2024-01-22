@@ -143,17 +143,17 @@ const Login = () => {
                     </div>
 
                     <br /> <br />
-                    <button className="btn" onClick={checkAuth}>Continue</button>
+                    <button className="loginbtn" onClick={checkAuth}>Continue</button>
 
                     <br /><br />
 
-                    <p style={{ marginLeft: "130px" }}>Don't have account ? <button className="submitbtn" onClick={() => { navigate("/signup") }} >Signup</button> </p><br />
+                    <p style={{ marginLeft: "90px" }}>Don't have account ? <button className="submitbtn" onClick={() => { navigate("/signup") }} >Signup</button> </p><br />
 
                     <p className="or">_______________&nbsp;&nbsp;<i style={{color:"grey",position:"absolute",marginTop:"3px"}}>OR</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_______________</p>
 
 
                     <br /><br />
-                    <button className="email" onClick={() => login()}><FcGoogle style={{position:"absolute",marginLeft:"-30px"}} />Countinue with Google </button>
+                    <button className="email" onClick={() => login()}><FcGoogle style={{position:"absolute",marginLeft:"-30px",marginTop:"4px"}} />Countinue with Google </button>
                     <br /><br />
                     
 
