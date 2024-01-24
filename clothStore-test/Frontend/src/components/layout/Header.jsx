@@ -13,6 +13,7 @@ import { googleLogout } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../slices/userSlice";
 import Footer from "../pages/footer/Footer";
+import mylogo from "./logofinal.png"
 
 
 const Header = () => {
@@ -105,7 +106,8 @@ const Header = () => {
 
 
             <motion.div className="logo">
-                <motion.h1 style={colorset?{color:"white"}:{color:"black"}}>As fashion</motion.h1>
+                <img style={{width:"100px",marginTop:"15px"}} src={mylogo}/>
+                {/* <motion.h1 style={colorset?{color:"white"}:{color:"black"}}>As fashion</motion.h1> */}
             </motion.div>
             <motion.div className={match ? "hide" : "navlinks"}>
                 <ul className="linkcontainer">

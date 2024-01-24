@@ -4,8 +4,9 @@ import img2 from "../showproduct/img/img2.webp"
 import img3 from "../showproduct/img/img3.webp"
 import img4 from "../showproduct/img/img4.webp"
 import img5 from "../showproduct/img/img5.webp"
+import { useState } from "react"
 const Showproduct=()=>{
-
+const [myimg,setimg]=useState()
 return(
     <>
      <div id="margin-top-slider1"></div>
@@ -24,6 +25,9 @@ return(
               id="muliple_img1"
               src={img2}
               alt=""
+              onLoad={()=>{setimg(img2)}}
+              onClick={()=>{setimg(img2)}}
+              onMouseEnter={()=>{setimg(img2)}}
             />
           </div>
           <div>
@@ -31,6 +35,8 @@ return(
               id="muliple_img2"
               src={img3}
               alt=""
+              onClick={()=>{setimg(img3)}}
+              onMouseEnter={()=>{setimg(img3)}}
             />
           </div>
           <div>
@@ -38,6 +44,8 @@ return(
               id="muliple_img3"
               src={img4}
               alt=""
+              onClick={()=>{setimg(img4)}}
+              onMouseEnter={()=>{setimg(img4)}}
             />
           </div>
           <div>
@@ -45,6 +53,8 @@ return(
               id="muliple_img4"
               src={img5}
               alt=""
+              onClick={()=>{setimg(img5)}}
+              onMouseEnter={()=>{setimg(img5)}}
             />
           </div>
           
@@ -56,7 +66,7 @@ return(
           <div>
             <img
               id="main_img_1"
-              src={img1}
+              src={myimg}
               
             />
           </div>

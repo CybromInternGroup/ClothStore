@@ -102,7 +102,7 @@
     left: 85%;
     width: 15%;
     max-height: 150px;
-    overflow-y: auto;
+    overflow-y: scroll;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: black;
@@ -120,7 +120,10 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
+  .dropdown-options::-webkit-scrollbar{
+    display: none;
+  }
+
   .dropdown-options div:hover {
     background-color: #FFC107;
     color: black;
