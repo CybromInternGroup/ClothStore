@@ -101,6 +101,7 @@ padding: 2px;
 .product_item_box>div>img
 {
     width: 100%;
+    /* height: 200px; */
     
     
 }
@@ -114,6 +115,25 @@ padding: 2px;
     margin-left: 30%;
     
 }
+.prodetail{
+        border: 1px solid #ECF0F4;
+        width: 99%;
+        height: 130px;
+        line-height: 15px;
+        background-color: #FAFAFA;
+        margin-top: -7px;
+        border-radius: 0 0 8px 8px;
+        
+    
+}
+.procartbutton{
+    width: 100%;
+    background-color: black;
+    color: white;
+    margin-left: -1px;
+    margin-top: -10px;
+}
+
 .sub_item>ul
 {
 list-style-type: none;

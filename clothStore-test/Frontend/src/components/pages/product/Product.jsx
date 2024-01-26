@@ -99,52 +99,59 @@ const Products = ()=>{
                
                 <div onClick={gotoshowproduct}>
                     <img src={img1} alt=""/>
+                    <div className="prodetail">
                     <h6>Men's Black & Grey Color Block</h6>
-                    <ul><li><p>₹1299</p> <p></p></li></ul>
-                     <p>Special Price</p>
+                    <p>₹1299</p>
+                     <button className="procartbutton">Add to cart</button></div>
                 </div>
                
                 <div>
                     <img src={img2} alt=""/>
-                    <h6>Product name</h6>
-                    <ul><li><p>₹1299</p> <p></p></li></ul>
-                     <p>Special Price</p>
+                    <div className="prodetail">
+                    <h6>Men's Black & Grey Color Block</h6>
+                    <p>₹1299</p>
+                     <button className="procartbutton">Add to cart</button></div>
                 </div>
                 
                 <div>
                     <img src={img3} alt=""/>
-                    <h6>Product name</h6>
-                    <ul><li><p>₹1299</p> <p></p></li></ul>
-                     <p>Special Price</p>
+                    <div className="prodetail">
+                    <h6>Men's Black & Grey Color Block</h6>
+                    <p>₹1299</p>
+                     <button className="procartbutton">Add to cart</button></div>
                 </div>
                 
                 <div>
                     <img src={img4} alt=""/>
-                    <h6>Product name</h6>
-                    <ul><li><p>₹1299</p> <p></p></li></ul>
-                     <p>Special Price</p>
+                    <div className="prodetail">
+                    <h6>Men's Black & Grey Color Block</h6>
+                    <p>₹1299</p>
+                     <button className="procartbutton">Add to cart</button></div>
                 </div>
                 
                 <div>
                     <img src={img5}alt=""/>
-                    <h6>Product name</h6>
-                    <ul><li><p>₹1299</p> <p></p></li></ul>
-                     <p>Special Price</p>
+                    <div className="prodetail">
+                    <h6>Men's Black & Grey Color Block</h6>
+                    <p>₹1299</p>
+                     <button className="procartbutton">Add to cart</button></div>
                 </div>
                 
                 <div>
                     <img src={img6} alt=""/>
-                    <h6>Product name</h6>
-                    <ul><li><p>₹1299</p> <p></p></li></ul>
-                     <p>Special Price</p>
+                    <div className="prodetail">
+                    <h6>Men's Black & Grey Color Block</h6>
+                    <p>₹1299</p>
+                     <button className="procartbutton">Add to cart</button></div>
                 </div>
 
                 
                 <div>
                     <img src={img7} alt=""/>
-                    <h6>Men's Green Puffer Jacket</h6>
-                    <ul><li><p>₹1299</p> <p></p></li></ul>
-                     <p>Special Price</p>
+                    <div className="prodetail">
+                    <h6>Men's Black & Grey Color Block</h6>
+                    <p>₹1299</p>
+                     <button className="procartbutton">Add to cart</button></div>
                 </div>
               {/* <!-- product item end here --> */}
         </div>
