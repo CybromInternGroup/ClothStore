@@ -36,13 +36,13 @@
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  margin-left: 4rem;
+  /* margin-left: 0px; */
 }
 
-.btn {
+.loginbtn {
   /* background-color: #4CAF50;
   color: white; */
-  padding: 10px 15px;
+  /* padding: 10px 15px; */
   border: none;
   cursor: pointer;
 }
@@ -59,7 +59,7 @@
 }
 
 
-.btn{
+.loginbtn{
   
   background-color: #FFC107;
   color: black;
@@ -67,9 +67,9 @@
   height: 40px;
   text-align: center;
   font-size: larger;
-  margin-left: 20px;
+  margin-left: 10px;
 }
-.btn:hover{
+.loginbtn:hover{
   background-color: black;
   color: white;
 }
@@ -79,7 +79,7 @@
   background-color: white;
   font-size: larger;
   justify-content: center;
-  margin-left: 7rem;
+  margin-left: 3.5rem;
 }
 
 /* .num{
@@ -110,7 +110,7 @@
 }
 .or{
   color: lightgrey;
-  margin-left: 95px;
+  margin-left: 5px;
   
 }
 

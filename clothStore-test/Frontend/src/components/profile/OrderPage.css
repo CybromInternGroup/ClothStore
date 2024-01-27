@@ -1,0 +1,36 @@
+
+.orderdiv{
+    display: flex;
+    background-color:rgb(241, 241, 241);
+    padding: 20px;
+    margin-top: 10%;
+    width: 50%;
+    justify-content: space-evenly;
+    margin-left: 25%;
+    line-height: 10px;
+    box-shadow: 5px 1px 5px grey;
+    margin-bottom: 50px;
+}
+
+/* .orderdiv:nth-child(2){
+    background-color: rgb(241, 241, 241);
+} */
+
+#cancelbtn{
+    padding-left: 15px;
+    width: 70px;
+    background-color: #FFC107;
+    margin-right: 30px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    /* margin-left: 15px; */
+}
+
+#Pro-detail{
+    padding-left: 20px;
+}
+.orderimg img{
+
+    width: 150px;
+}

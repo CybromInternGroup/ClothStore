@@ -1,0 +1,103 @@
+
+#footer-part {
+    line-height: 20px;
+    padding: 5% 0;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: rgb(223, 24, 24);
+    font-family: "montserrat", sans-serif;
+}
+
+#customer-section {
+    padding-top: 10px;
+    width: 100%;
+    margin: auto;
+    color: white;
+    background-color: black;
+}
+
+.customer-section-grid a{
+    color: white;
+    text-decoration: none;
+}
+#customer-section>h1{
+   color: #fdd835;
+}
+
+.customer-section-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    margin: auto;
+
+}
+.customer-section-grid h4 {
+    color: #fdd835;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 400;
+}
+
+.customer-section-grid h4+input {
+    border: none;
+    border-bottom: 1px solid yellow;
+    background-color: black;
+    height: 30px;
+}
+
+.customer-section-grid .subscribe-button {
+    background-color: yellow;
+    border: none;
+    color: black;
+    height: 30px;
+    width: 100px;
+}
+
+#customer-section-grid p ,.customer-section-grid p  {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    font-family:  sans-serif;
+}
+
+#download-the-app-images {
+    display: flex;
+    width: 80%;
+}
+
+#download-the-app-images>div {
+
+    flex: 1;
+    height: 30px;
+    margin: 2px;
+
+}
+
+#download-the-app-images>div img {
+    width: 100%;
+    height: 100%;
+}
+
+/* footer part media queries */
+
+@media screen and (min-width:0px) and (max-width:375px) {
+
+    .customer-section-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        margin: auto;
+    }
+}
+
+@media screen and (min-width:375px) and (max-width:765px) {
+
+    .customer-section-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        margin: auto;
+    }
+}

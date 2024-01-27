@@ -1,7 +1,7 @@
 import Header from "./components/layout/Header";
 import { Route, Routes, Link, Router, } from "react-router-dom";
 import Home from "./components/pages/home/Home";
-import Products from "./components/pages/Products";
+import Products from "./components/pages/product/Product";
 import Blogs from "./components/pages/Blogs";
 import Login from "./components/pages/login/Login";
 import Signup from "./components/pages/signup/Signup";
@@ -9,6 +9,13 @@ import Tester from "./components/pages/Tester";
 import Forgotpassword from "./components/password/Forgotpassword";
 import Cart from "./components/pages/cart/Cart";
 import Ordersummery from "./components/pages/ordersummery/Ordersummery";
+import Payment from "./components/pages/payment/Payment";
+import Showproduct from "./components/pages/showproduct/Showproduct";
+import Homesider from "./components/homesider/Homesider";
+import Address from "./components/profile/Myaddress";
+import OrderPage from "./components/profile/OrderPage";
+import ProfilePayment from "./components/profile/ProfilePayment";
+import ProfileInfo from "./components/profile/ProfileInfo";
 
 
 
@@ -29,6 +36,14 @@ const App = () => {
         <Route path={"/Blogs"} element={<Blogs />} />
         <Route path={"/cart"} element={<Cart/>}/>
         <Route path={"/ordersummery"} element={<Ordersummery/>}/>
+        <Route path={"/payment"} element={<Payment/>}/>
+        <Route path={"/showproduct"} element={<Showproduct/>}/>
+        <Route path={"/homesider"} element={<Homesider/>}/>
+        <Route path={"/myaddress"} element={<Address/>}/>
+        <Route path={"/myorder"} element={<OrderPage/>}/>
+        <Route path={"/mypayment"} element={<ProfilePayment/>}/>
+        <Route path={"/myinfo"} element={<ProfileInfo/>}/>
+
 
       </Route>
 
