@@ -129,7 +129,7 @@ const Login = () => {
 
                 <div className="form-content">
                     <h1>Log In </h1><br /><br />
-                    <p style={{color:"#a0a0a0"}}>For Latest Trend Exciting offers</p><br />
+                    <p className="logtrendtext" style={{color:"#a0a0a0"}}>For Latest Trend Exciting offers</p><br />
                     
                     <div class="searchformfld">
                     <input className="num" name="email" type="text" id="candidateName" onChange={handlechange} placeholder=" " />
@@ -147,13 +147,13 @@ const Login = () => {
 
                     <br /><br />
 
-                    <p style={{ marginLeft: "90px" }}>Don't have account ? <button className="submitbtn" onClick={() => { navigate("/signup") }} >Signup</button> </p><br />
+                    <p className="logdonttext" style={{ marginLeft: "90px" }}>Don't have account ? <button className="submitbtn" onClick={() => { navigate("/signup") }} >Signup</button> </p><br />
 
                     <p className="or">_______________&nbsp;&nbsp;<i style={{color:"grey",position:"absolute",marginTop:"3px"}}>OR</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_______________</p>
 
 
                     <br /><br />
-                    <button className="email" onClick={() => login()}><FcGoogle style={{position:"absolute",marginLeft:"-30px",marginTop:"4px"}} />Countinue with Google </button>
+                    <button className="email" onClick={() => login()}><FcGoogle className="googleicon" style={{position:"absolute",marginLeft:"-30px",marginTop:"4px"}} />Countinue with Google </button>
                     <br /><br />
                     
 

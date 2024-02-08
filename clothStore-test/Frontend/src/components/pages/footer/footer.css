@@ -1,6 +1,6 @@
 
 #footer-part {
-    line-height: 20px;
+    /* line-height: 5px; */
     padding: 5% 0;
     width: 100%;
     height: auto;
@@ -10,7 +10,7 @@
 }
 
 #customer-section {
-    padding-top: 10px;
+    /* padding-top: 10px; */
     width: 100%;
     margin: auto;
     color: white;
@@ -35,7 +35,7 @@
 .customer-section-grid h4 {
     color: #fdd835;
     font-size: 18px;
-    line-height: 18px;
+    line-height: 1px;
     font-weight: 400;
 }
 
@@ -43,7 +43,10 @@
     border: none;
     border-bottom: 1px solid yellow;
     background-color: black;
+    color: white;
     height: 30px;
+    width: 140px;
+    outline: none;
 }
 
 .customer-section-grid .subscribe-button {
@@ -58,7 +61,7 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 5px;
     font-family:  sans-serif;
 }
 
@@ -86,9 +89,25 @@
 
     .customer-section-grid {
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         width: 100%;
         margin: auto;
+    }
+    #customer-section-grid p ,.customer-section-grid p  {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+        font-family:  sans-serif;
+    }
+    .customer-section-grid h4 {
+        color: #fdd835;
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 400;
+    }
+    .footerupdate{
+        margin-top: 20px;
     }
 }
 
@@ -99,5 +118,21 @@
         grid-template-columns: repeat(2, 1fr);
         width: 100%;
         margin: auto;
+    }
+    #customer-section-grid p ,.customer-section-grid p  {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 18px;
+        font-family:  sans-serif;
+    }
+    .customer-section-grid h4 {
+        color: #fdd835;
+        font-size: 18px;
+        line-height: 18px;
+        font-weight: 400;
+    }
+    .footerupdate{
+        margin-top: 20px;
     }
 }

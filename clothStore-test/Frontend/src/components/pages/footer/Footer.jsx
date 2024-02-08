@@ -23,12 +23,12 @@ const Footer=()=>{
                 <p><a href="">Privacy Policy</a></p>
                 <p><a href="">Blog</a></p>
             </div>
-            <div>
+            <div style={{marginLeft:"12px"}}>
                 <h4>Connect with us</h4>
                 <p><a href="">0 People Like this</a></p>
                 <p><a href="">0 Followers</a></p>
             </div>
-            <div>
+            <div className="footerupdate">
                 <h4>Keep up to date</h4>
                 <input placeholder="Enter Email id"/>
                 <button class="subscribe-button">Subscribe</button>
@@ -49,7 +49,7 @@ const Footer=()=>{
 
                 </div>
             </div>
-            <div>
+            <div style={{marginLeft:"2px"}}>
                 <h4>100% secure payment</h4>
                 <div>
                     <img src="https://images.bewakoof.com/web/secure-payments-image.png"/>

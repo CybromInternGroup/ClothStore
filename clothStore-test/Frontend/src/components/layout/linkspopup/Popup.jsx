@@ -10,9 +10,20 @@ import { Link } from "react-router-dom";
 
 const Popup = ()=>{
 
-
+    const [colorset, setcolor] = useState(false)    
     const match = useMediaQuery('(max-width: 768px)')
     const [open , setopn] = useState(false)
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY >= 170) {
+            setcolor(true)
+        }
+        else {
+            setcolor(false)
+        }
+    })
+
     const variants = {
 
         open:{
@@ -70,7 +81,7 @@ const Popup = ()=>{
 
 <div className={match ? "hamburger" :"hide"} >
 {
-open?<ImCross className={"icon"}  onClick={()=>{setopn(false)}} />:<FaBars className={"icon"} onClick={()=>{setopn(true)}}  />
+open?<ImCross className={"icon"}  onClick={()=>{setopn(false)}} />:<FaBars style={colorset?{color:"white"}:{color:"black"}} className={"icon"} onClick={()=>{setopn(true)}}  />
 
 }
 

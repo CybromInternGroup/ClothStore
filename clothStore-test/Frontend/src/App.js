@@ -16,6 +16,7 @@ import Address from "./components/profile/Myaddress";
 import OrderPage from "./components/profile/OrderPage";
 import ProfilePayment from "./components/profile/ProfilePayment";
 import ProfileInfo from "./components/profile/ProfileInfo";
+import AboutUs from "./components/pages/aboutus/AboutUs";
 
 
 
@@ -33,7 +34,7 @@ const App = () => {
 
         <Route path={"/home"} element={<Home />} />
         <Route path={"/Products"} element={<Products />} />
-        <Route path={"/Blogs"} element={<Blogs />} />
+        <Route path={"/About Us"} element={<AboutUs />} />
         <Route path={"/cart"} element={<Cart/>}/>
         <Route path={"/ordersummery"} element={<Ordersummery/>}/>
         <Route path={"/payment"} element={<Payment/>}/>

@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../slices/userSlice";
 import Footer from "../pages/footer/Footer";
 import mylogo from "./logofinal.png"
+import Dropdown from "./dropdown";
 
 
 const Header = () => {
@@ -106,15 +107,23 @@ const Header = () => {
 
 
             <motion.div className="logo">
-                <img style={{width:"100px",marginTop:"15px"}} src={mylogo}/>
-                {/* <motion.h1 style={colorset?{color:"white"}:{color:"black"}}>As fashion</motion.h1> */}
+                {/* <img style={{width:"100px",marginTop:"15px"}} src={mylogo}/> */}
+                <motion.h1 style={colorset?{color:"white"}:{color:"black"}}>As fashion</motion.h1>
             </motion.div>
             <motion.div className={match ? "hide" : "navlinks"}>
                 <ul className="linkcontainer">
-                    {links.map((key, idx) => {
+                    {/* {links.map((key, idx) => {
+
                         return <Link style={{ textDecoration: "none" }} to={key}><li style={colorset?{color:"white"}:{color:"black"}} >{key}</li></Link>
 
-                    })}
+                    })} */}
+                    <li className="mainlinks">
+                      <Link style={colorset?{color:"white"}:{color:"black"}} to="home">Home</Link>
+                      <Link style={colorset?{color:"white"}:{color:"black"}} to="Products">Products</Link>
+                      <li style={colorset?{color:"white"}:{color:"black"}} to="categories" onClick={<Dropdown/>}>Categories</li>
+                      <Link style={colorset?{color:"white"}:{color:"black"}} to="About Us">About Us</Link>
+                      </li>
+                                      
                 </ul>
             </motion.div>
 
@@ -145,10 +154,10 @@ const Header = () => {
 
             <Popup />
             {isLogin && <h1>{userEmail}</h1>}
-            {isLogin && <img src={profilePic} alt="not" />}
+            {/* {isLogin && <img src={profilePic} alt="not" />} */}
             {console.log(profilePic)}
 
-            <button onClick={() => { logout() }}>logout</button>
+            {/* <button onClick={() => { logout() }}>logout</button> */}
         </motion.div>
 
 

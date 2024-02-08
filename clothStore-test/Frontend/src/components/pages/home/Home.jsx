@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import "./home.css"
 import Slider from "../../slider/Slider";
 import { useEffect, useState } from "react";
+import { scroller } from "react-scroll";
 
 import imgs2 from "../home/images/s2.webp"
 import imgs3 from "../home/images/s3.webp"
@@ -16,7 +17,6 @@ import imgf1 from "./images/f1.webp"
 
 
 const Home = ()=>{
-
 
 useEffect(()=>{ 
      

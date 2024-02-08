@@ -1,9 +1,5 @@
 
 
-
-
-
-
 .homeContainer{
 
   /* background-image: url("../../../data5.webp"); */
@@ -87,6 +83,9 @@ display: grid;
 grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
 gap: 20px;
 padding: 20px;
+}
+.slider-btn{
+  top:37%;
 }
 }
 .product {
@@ -319,7 +318,7 @@ align-items: center
 
 .card1 {
 position: relative;
-width: 400px;
+width: 390px;
 height: 250px;
 border-radius: 10px;
 display: flex;
@@ -393,8 +392,8 @@ font-size: 13px
 width: 90px;
 height: 35px;
 border: none;
-background-color: #0000ffb8;
-color: #fff;
+background-color: #FFC107;
+color: black;
 font-size: 14px;
 border-radius: 4px
 }
@@ -410,11 +409,178 @@ opacity: 1
 /* YourComponent.css */
 
 .main1 {
+  
   display: grid;
   grid-template-columns: auto auto auto;
   margin-top: 10%;
   gap: 5rem;
  /* background-image: url(../home/images/sssurf.png); */
  background-image: linear-gradient(#fffefd, #fff2da);
+ padding-bottom: 8%;
+}
+@media screen and (max-width: 600px){
+  .main1 {
+  
+    display: grid;
+    grid-template-columns: auto;
+    margin-top: 10%;
+    gap: 5rem;
+   /* background-image: url(../home/images/sssurf.png); */
+   background-image: linear-gradient(#fffefd, #fff2da);
+  }
 }
 
+@media screen and (max-width: 375px){
+
+  .slider-btn{
+    top:60%;
+  }
+  .main1 {
+  
+    display: grid;
+    grid-template-columns: auto;
+    margin-top: 10%;
+    /* gap: 5rem; */
+   /* background-image: url(../home/images/sssurf.png); */
+   background-image: linear-gradient(#fffefd, #fff2da);
+  }
+  .card1 {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 2s
+    }
+    
+    .circle {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+color: #fff;
+overflow: hidden;
+border-radius: 10px;
+z-index: 5
+}
+
+.circle::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #0d0d0d;
+clip-path: circle(120px at 50% 50%);
+transition: 0.9s;
+z-index: 10
+}
+
+.card1:hover .circle::before {
+clip-path: circle(400px at 50% 50%)
+}
+
+.card1 img {
+  z-index: 10;
+  position: absolute;
+  transition: 0.5s;
+  pointer-event: none;
+  border-radius: 50%; /* Make the image a circle */
+  overflow: hidden; /* Hide overflow to ensure a perfect circle */
+  
+  
+  }
+  
+  .card1:hover img {
+  height: 200px !important;
+  width: 200px !important; /* Set the width equal to the height for a perfect circle */
+  top: 8%;
+  right: 0%;
+  }
+
+  .main1 button{
+    margin-top:30% !important;
+  }
+  
+}
+
+
+@media only screen  and (max-width: 475px)and (min-width:376px){
+  .main1 {
+  
+    display: grid;
+    grid-template-columns: auto;
+    margin-top: 10%;
+    /* gap: 5rem; */
+   /* background-image: url(../home/images/sssurf.png); */
+   background-image: linear-gradient(#fffefd, #fff2da);
+  }
+  .card1 {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 2s
+    }
+    
+    .circle {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+color: #fff;
+overflow: hidden;
+border-radius: 10px;
+z-index: 5
+}
+
+.circle::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #0d0d0d;
+clip-path: circle(120px at 50% 50%);
+transition: 0.9s;
+z-index: 10
+}
+
+.card1:hover .circle::before {
+clip-path: circle(400px at 50% 50%)
+}
+
+.card1 img {
+  z-index: 10;
+  position: absolute;
+  transition: 0.5s;
+  pointer-event: none;
+  border-radius: 50%; /* Make the image a circle */
+  overflow: hidden; /* Hide overflow to ensure a perfect circle */
+  
+  
+  }
+  
+  .card1:hover img {
+  height: 200px !important;
+  width: 200px !important; /* Set the width equal to the height for a perfect circle */
+  top: 8%;
+  right: 2%;
+  }
+
+  .main1 button{
+    margin-top:30% !important;
+  }
+  .slider-btn{
+    top:60%;
+  }
+}

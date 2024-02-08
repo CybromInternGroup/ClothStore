@@ -6,27 +6,67 @@ import img4 from "./img/4.webp"
 import img5 from "./img/5.webp"
 import img6 from "./img/6.webp"
 import img7 from "./img/7.webp"
-import { useNavigate } from "react-router-dom"
+import {useNavigate} from "react-router-dom"
+const array=[
+    {
+        img:img1,
+        discription:"first compoent",
+        rate:"1366"
+    },
+    {
+        img:img1,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img1,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img1,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img1,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img1,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img1,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img1,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img1,
+        discription:"first compoent",
+        rate:"1366"
+    },
+]
 
-const Products = ()=>{
+const Product = ()=>{
 
     const navigate=useNavigate();
 
     const gotoshowproduct=()=>{
         navigate('/showproduct')
     }
-
     return (
     <> 
     
-<div id = "margin-top-slider1"></div>
+{/* <div id = "margin-top-slider1"></div> */}
+<div id="product-main">
 
-<div className="popup" id="popup-1" >
+{/* <div className="popup" id="popup-1" >
     <div className="overlay"></div>
     <div className="spinner1">
 
     </div>
-</div>
+</div> */}
 
 <div id="product_container">
     {/* <!-- top menu start --> */}
@@ -42,29 +82,51 @@ const Products = ()=>{
     {/* <!-- top nav menu end -->
     <!-- side filter start --> */}
     <br/> <br/>
+    <div>
+        <h2 id="cloth">Men Cloths</h2>
+        <div className="hrline1"></div></div>
     <div className="Number_of_Cat_item_and_name">
-        <a href=""><h2 style={{color: "#ffc107" ,borderBottom:" 2px solid #ffc107"}}>Jackets for Men</h2></a>
-        
-            {/* <select name="" id="sortPrice">
+        <div className="hn">
+            
+             <select name="" id="sortPrice">
                 <option value="popular"> Sort By: Popular</option>
+
                 <option value="new">New</option>
                 <option value="high">Price :High to Low</option>
                 <option value="low">Price :Low to High</option>
-            </select> */}
+                    
+
+            </select> 
+            </div>
+        <div className="hn">
+            
+             <select name="" id="sortPrice">
+                <option value="popular"> Size</option>
+
+                <option value="low">XS</option>
+                <option value="new">S</option>
+                <option value="high">M</option>
+                <option value="low">L</option>
+                <option value="low">XL</option>
+                    
+
+            </select> 
+            </div>
     </div>
     <div className="product_item_left_nav">
         <div className="left_filter_nav">
             <ul>
-                <h5>Filters</h5>
+                <h3>Filters</h3>
                 <li><a href="">Size</a><a href=""><i className="fas fa-chevron-circle-down"></i>
-                 <hr className="hrline"/>
+                 <div className="hrline"></div>
                   <div className="sub_item">
                     <ul>
-                        <li><input type="checkbox" /><a href="">Xs</a>  </li>
-                        <li><input type="checkbox" /><a href="">S</a></li>
-                        <li><input type="checkbox" /><a href="">M</a></li>
-                        <li><input type="checkbox" /><a href="">L</a></li>
-                        <li><input type="checkbox" /><a href="">XL</a></li>
+                        <li><input type="checkbox" id="cb1"/><a href="" id="Xs">Xs</a></li>
+                        <li><input type="checkbox"/><a href="">XS</a></li>
+                        <li><input type="checkbox"/><a href="">S</a></li>
+                        <li><input type="checkbox"/><a href="">M</a></li>
+                        <li><input type="checkbox"/><a href="">L</a></li>
+                        <li><input type="checkbox"/><a href="">XL</a></li>
                     </ul>
                   </div>
                 </a>
@@ -82,13 +144,13 @@ const Products = ()=>{
                       </div></li> */}
 
                 <li><a href="">Sort_By</a><a href=""><i className="fas fa-chevron-circle-down"></i></a>
-                <hr className="hrline"/>
+                <div className="hrline"></div>
                     <div className="sub_item">
                         <ul>
                             <li><input type="checkbox" /><a href="" >Popular</a></li>
                             <li><input type="checkbox" /><a href="">New</a></li>
                             <li><input type="checkbox" /><a href="">Price:High To Low</a></li>
-                            <li><input type="checkbox" /><a href="">Price :Low to Hogh</a></li>
+                            <li><input type="checkbox" /><a href="">Price:Low to Hogh</a></li>
                         </ul>
                       </div>
                     </li>
@@ -96,8 +158,16 @@ const Products = ()=>{
         </div>
     
         <div className="product_item_box">
-               
-                <div onClick={gotoshowproduct}>
+            {array.map((key)=>
+                
+                <div>
+                    <img src={key.img} alt=""/>
+                    <div className="prodetail">
+                    <h6>{key.discription}</h6>
+                    <p>{key.rate}</p>
+                     <button className="procartbutton">Add to cart</button></div>
+                </div>)}
+                {/* <div className="productbox" onClick={gotoshowproduct} >
                     <img src={img1} alt=""/>
                     <div className="prodetail">
                     <h6>Men's Black & Grey Color Block</h6>
@@ -105,7 +175,7 @@ const Products = ()=>{
                      <button className="procartbutton">Add to cart</button></div>
                 </div>
                
-                <div>
+                <div  className="productbox">
                     <img src={img2} alt=""/>
                     <div className="prodetail">
                     <h6>Men's Black & Grey Color Block</h6>
@@ -152,13 +222,13 @@ const Products = ()=>{
                     <h6>Men's Black & Grey Color Block</h6>
                     <p>₹1299</p>
                      <button className="procartbutton">Add to cart</button></div>
-                </div>
+                </div> */}
               {/* <!-- product item end here --> */}
         </div>
         </div>
-    </div>
+    </div></div>
     </>
     )
 }
 
-export default Products;
+export default Product;

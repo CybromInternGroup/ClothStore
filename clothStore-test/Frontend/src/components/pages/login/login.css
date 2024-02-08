@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;1,200;1,300;1,500;1,600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,600;1,200;1,300;1,500;1,600&display=swap');
 
 *{
     font-family: 'Poppins', sans-serif;
-}
+} */
 .form-container {
     
   display: flex;
   justify-content: space-around ;
   gap: 3vw;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   width:100%;
   
   background-color: white; /* Adjust background color as needed */
@@ -30,6 +30,9 @@
   line-height: 5px;
   
 
+}
+.form-content h1{
+  margin-left: -500px;
 }
 
 .email {
@@ -213,4 +216,102 @@ transition: all 0.2s;
 transition-timing-function: ease;
 transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
 opacity:1;
+}
+
+
+@media screen and (max-width:475px) and (min-width:352px){
+
+  .form-container {
+    margin-top: 5%;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .form-content {
+    /* flex-grow: 1; */
+    /* margin-left: 100px; */
+    padding: 10px;
+    box-sizing: border-box; 
+    width:100% ;
+    line-height: 8px;
+    
+  
+  }
+  .form-content h1{
+    margin-left: -112%;
+    font-size: 30px;
+  }
+  .logtrendtext{
+    margin-left: -65px;
+    font-size: 17px;
+  }
+  .form-content input{
+    width: 85%;
+    margin-top: 10%;
+    margin-left: -8%;
+  }
+  .form-content label{
+    margin-left: -94%;
+    margin-top: 25px;
+    font-size: 15px;
+  }
+  .loginbtn{
+    font-size: 18px;
+    width: 85%;
+    margin-left: -8%;
+  }
+  .logdonttext{
+    font-size: 15px;
+    margin-left: 2% !important;
+  }
+  .or{
+    color: lightgrey;
+    margin-left:-1%;
+    font-size: 10px;
+    
+  }
+  .email{
+    width: 70%;
+    background-color: white;
+    font-size: larger;
+    justify-content: center;
+    margin-left: -1%;
+  }
+  .googleicon{
+    margin-top:-4px !important;
+    font-size: 18px;
+  }
+}
+
+
+@media screen and (max-width:432px) and (min-width:330px){
+
+  .form-content input{
+    width: 100%;
+    margin-top: 10%;
+    margin-left: -15%;
+  }
+  .form-content label{
+    margin-left: -110%;
+    margin-top: 25px;
+    font-size: 15px;
+  }
+  .loginbtn{
+    font-size: 18px;
+    width: 100%;
+    margin-left: -15%;
+  }
+  .or{
+    color: lightgrey;
+    margin-left:-4%;
+    font-size: 10px;
+    
+  }
+  .logdonttext{
+    font-size: 15px;
+    margin-left: -1% !important;
+  }
+
 }
