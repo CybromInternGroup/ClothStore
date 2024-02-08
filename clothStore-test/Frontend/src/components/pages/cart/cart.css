@@ -223,7 +223,7 @@
 }
 #size-qty {
     display: flex;
-    margin-top: -25px;
+    margin-top: -30px;
 }
 #size-qty>div {
     width: 70px;
@@ -232,7 +232,7 @@
 }
 #size-qty>div select {
     width: 70px;
-    height: 30px;
+    height: 35px;
     border-radius: 4px;
 }
 #cart-descr p {

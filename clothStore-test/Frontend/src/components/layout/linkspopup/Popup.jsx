@@ -20,7 +20,7 @@ const Popup = ()=>{
            scale:1,
            x:80,
            y:0,
-           clipPath: "circle(350px at 550px 200px)",
+           clipPath: "circle(350px at 650px 150px)",
         transition:{
         
             type: "spring",
@@ -88,7 +88,7 @@ open?<ImCross className={"icon"}  onClick={()=>{setopn(false)}} />:<FaBars class
 {links.map((key, idx)=>{
 
 
-return <motion.li key={idx} variants={childVariants}  layout > <Link style={{textDecoration:"none",color: "#fff"}} to={key}> {key}</Link> </motion.li >
+return <motion.li key={idx} variants={childVariants}  layout > <Link style={{textDecoration:"none",color: "#fff",fontSize:"20px"}} to={key}> {key}</Link> </motion.li >
 
 
 })}
