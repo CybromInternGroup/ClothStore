@@ -75,7 +75,7 @@ const Dropdown=()=>{
                                         <li><a href="#">sub sub sub item 001</a></li>
                                         <li><a href="#">sub sub sub item 002</a></li>
                                         <li><a href="#">sub sub sub item 003</a></li>
-                                        <li><a href="#">sub sub sub item 004</a></li>
+                                        <li><a href="#">sub sub s item 004</a></li>
                                         <li><a href="#">sub sub sub item 005</a></li>
                                     </ul>
                                 </li>
@@ -97,7 +97,7 @@ const Dropdown=()=>{
                     </h3>
                     <br/>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi autem doloremque ducimus enim
+                        Lorem ipsum siddharth sit amet, consectetur adipisicing elit. Animi autem doloremque ducimus enim
                         est et facilis iusto laboriosam magni molestiae molestias nesciunt obcaecati optio possimus
                         quam, quidem quos repudiandae sunt.
                     </p>
