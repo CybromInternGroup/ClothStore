@@ -179,3 +179,43 @@
   }
   
 }
+
+
+/* --------------dropdown=--------- */
+/* Dropdown container styling */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Toggle button styling */
+.dropdown-toggle {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown content styling */
+.dropdown-content {
+  width: 50px;
+  position: absolute;
+  top: 100%; /* Position it below the toggle button */
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.3s ease-in-out; /* Falling-down animation */
+}
+
+/* Falling-down animation keyframes */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

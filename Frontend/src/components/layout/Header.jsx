@@ -18,6 +18,13 @@ import Dropdown from "./dropdown";
 
 
 const Header = () => {
+// const [display,setDisplay]=useState("none");
+const [isdropOpen, setIsdropOpen] = useState(false);
+
+const toggleDropdowncat = () => {
+  setIsOpen(!isdropOpen);
+};
+
 
     const dispatch = useDispatch()
 
@@ -120,7 +127,7 @@ const Header = () => {
                     <li className="mainlinks">
                       <Link style={colorset?{color:"white"}:{color:"black"}} to="home">Home</Link>
                       <Link style={colorset?{color:"white"}:{color:"black"}} to="Products">Products</Link>
-                      <li style={colorset?{color:"white"}:{color:"black"}} to="categories" onClick={<Dropdown/>}>Categories</li>
+                      <li style={colorset?{color:"white"}:{color:"black"}} to="categories" >Categories</li>
                       <Link style={colorset?{color:"white"}:{color:"black"}} to="About Us">About Us</Link>
                       </li>
                                       
@@ -162,9 +169,22 @@ const Header = () => {
 
 
 
-
-
-
+      
+        {/* <nav className="dropdown" style={{display:display}} onMouseOver={()=>{setDisplay("block")}} onMouseLeave={()=>{setDisplay("none")}}> */}
+        
+        {/* <div className="dropdown-container">
+      <button className="dropdown-toggle" onClick={toggleDropdowncat}>
+        Open Dropdown
+      </button>
+      {isdropOpen && (
+        <div className="dropdown-content">
+          {/* Dropdown content goes here 
+          Your dropdown content
+        </div>
+      )}
+    </div> */}
+  
+    
         <Outlet />
         <Footer />
 

@@ -17,6 +17,7 @@ import OrderPage from "./components/profile/OrderPage";
 import ProfilePayment from "./components/profile/ProfilePayment";
 import ProfileInfo from "./components/profile/ProfileInfo";
 import AboutUs from "./components/pages/aboutus/AboutUs";
+import Error from "./components/pages/errorpage/Error";
 
 
 
@@ -52,6 +53,7 @@ const App = () => {
       <Route path={"/signup"} element={<Signup/>} />
       <Route path={"/testing"} element={<Tester/>} />
       <Route path = {"/forgotpassword"} element={<Forgotpassword/>} />
+      <Route path="*" element={<Error/>}/>
 
     </Routes>
 
