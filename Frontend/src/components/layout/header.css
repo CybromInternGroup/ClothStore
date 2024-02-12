@@ -184,28 +184,35 @@
 /* --------------dropdown=--------- */
 /* Dropdown container styling */
 .dropdown-container {
-  position: relative;
+  position: absolute;
+  top:0px;
   display: inline-block;
+ 
 }
 
 /* Toggle button styling */
 .dropdown-toggle {
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px;
+  /* background-color: #3498db; */
+  /* color: #fff; */
+  /* padding: 0px; */
   border: none;
   cursor: pointer;
 }
 
 /* Dropdown content styling */
 .dropdown-content {
-  width: 50px;
-  position: absolute;
-  top: 100%; /* Position it below the toggle button */
-  left: 0;
-  background-color: #fff;
+  width: 125px;
+  padding: 10px;
+  position: fixed;
+  top: 60px; /* Position it below the toggle button */
+  left: 695px;
+  z-index: 9999;
+  background:none;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   animation: slideDown 0.3s ease-in-out; /* Falling-down animation */
+}
+.dropdown-content p:hover{
+  color: #FFC107;
 }
 
 /* Falling-down animation keyframes */
