@@ -7,14 +7,13 @@ import { useMediaQuery } from 'usehooks-ts'
 import { useEffect, useState } from "react";
 import { motion, useMotionValue, useScroll } from "framer-motion";
 import Popup from "./linkspopup/Popup";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import { IoMdLogIn } from "react-icons/io";
 import { googleLogout } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../slices/userSlice";
 import Footer from "../pages/footer/Footer";
 import mylogo from "./logofinal.png"
-import Dropdown from "./dropdown";
 
 
 const Header = () => {
@@ -22,7 +21,7 @@ const Header = () => {
 const [isdropOpen, setIsdropOpen] = useState(false);
 
 const toggleDropdowncat = () => {
-  setIsOpen(!isdropOpen);
+  setIsdropOpen(!isdropOpen);
 };
 
 
@@ -127,7 +126,7 @@ const toggleDropdowncat = () => {
                     <li className="mainlinks">
                       <Link style={colorset?{color:"white"}:{color:"black"}} to="home">Home</Link>
                       <Link style={colorset?{color:"white"}:{color:"black"}} to="Products">Products</Link>
-                      <li style={colorset?{color:"white"}:{color:"black"}} to="categories" >Categories</li>
+                      <li style={colorset?{color:"white"}:{color:"black"}} to="categories"  className="dropdown-toggle" onClick={toggleDropdowncat}>Categories</li>
                       <Link style={colorset?{color:"white"}:{color:"black"}} to="About Us">About Us</Link>
                       </li>
                                       
@@ -172,17 +171,21 @@ const toggleDropdowncat = () => {
       
         {/* <nav className="dropdown" style={{display:display}} onMouseOver={()=>{setDisplay("block")}} onMouseLeave={()=>{setDisplay("none")}}> */}
         
-        {/* <div className="dropdown-container">
-      <button className="dropdown-toggle" onClick={toggleDropdowncat}>
-        Open Dropdown
-      </button>
+         <div className="dropdown-container" onMouseOver={()=>{setIsdropOpen(true)}} onMouseLeave={()=>{setIsdropOpen(false)}}>
       {isdropOpen && (
         <div className="dropdown-content">
-          {/* Dropdown content goes here 
-          Your dropdown content
+     <NavLink to="/Products" style={{textDecoration:"none",color:"black",fontWeight:"bolder"}}>
+          <p>Jeans</p>
+          <p>Pajamas</p>
+          <p>Shirt</p>
+          <p>T-Shirt</p>
+          <p>Jackets</p>
+          <p>Trouser & Pants</p>
+</NavLink>
+          
         </div>
       )}
-    </div> */}
+    </div> 
   
     
         <Outlet />
