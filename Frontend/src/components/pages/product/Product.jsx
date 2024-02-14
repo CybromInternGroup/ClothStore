@@ -14,7 +14,27 @@ const array=[
         rate:"1366"
     },
     {
-        img:img1,
+        img:img2,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img3,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img4,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img5,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img6,
+        discription:"first compoent",
+        rate:"1366"
+    },{
+        img:img7,
         discription:"first compoent",
         rate:"1366"
     },{
@@ -22,27 +42,27 @@ const array=[
         discription:"first compoent",
         rate:"1366"
     },{
-        img:img1,
+        img:img2,
         discription:"first compoent",
         rate:"1366"
     },{
-        img:img1,
+        img:img3,
         discription:"first compoent",
         rate:"1366"
     },{
-        img:img1,
+        img:img3,
         discription:"first compoent",
         rate:"1366"
     },{
-        img:img1,
+        img:img5,
         discription:"first compoent",
         rate:"1366"
     },{
-        img:img1,
+        img:img6,
         discription:"first compoent",
         rate:"1366"
     },{
-        img:img1,
+        img:img7,
         discription:"first compoent",
         rate:"1366"
     },
