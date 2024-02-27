@@ -60,19 +60,19 @@ const Payment = () => {
         break;
       case "payment-net-banking-button":
           
-      document.getElementById("payment-debit-button").style.backgroundColor = "whitesmoke";
-      document.getElementById("payment-debit-button").style.borderLeft = "none";
-      document.getElementById("payment-net-banking-button").style.backgroundColor = "white";
-      document.getElementById("payment-net-banking-button").style.borderLeft = "5px solid #ffc107";
-      document.getElementById("payment-wallet-button").style.backgroundColor = "whitesmoke";
-      document.getElementById("payment-wallet-button").style.borderLeft = "none";        
-      document.getElementById("payment-upi-button").style.backgroundColor = "whitesmoke";
-      document.getElementById("payment-upi-button").style.borderLeft = "none";
-      document.getElementById("payment-upi").style.display = "none";
-      document.getElementById("payment-debit").style.display = "none";
-      document.getElementById("payment-wallet").style.display = "none";
-      document.getElementById("payment-net-banking").style.display = "block";
-                  
+          document.getElementById("payment-debit-button").style.backgroundColor = "whitesmoke";
+          document.getElementById("payment-debit-button").style.borderLeft = "none";
+          document.getElementById("payment-net-banking-button").style.backgroundColor = "white";
+          document.getElementById("payment-net-banking-button").style.borderLeft = "5px solid #ffc107";
+          document.getElementById("payment-wallet-button").style.backgroundColor = "whitesmoke";
+          document.getElementById("payment-wallet-button").style.borderLeft = "none";        
+          document.getElementById("payment-upi-button").style.backgroundColor = "whitesmoke";
+          document.getElementById("payment-upi-button").style.borderLeft = "none";
+          document.getElementById("payment-upi").style.display = "none";
+          document.getElementById("payment-debit").style.display = "none";
+          document.getElementById("payment-wallet").style.display = "none";
+          document.getElementById("payment-net-banking").style.display = "block";
+                      
         break;
       default:
         break;

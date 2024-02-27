@@ -12,6 +12,12 @@ import imgpro3 from "./images/product3.jpg"
 import imgpro4 from "./images/product4.jpg"
 
 import imgn1 from "./images/n1.webp"
+import img3 from "./images/n2.webp"
+import img4 from "./images/p2.webp"
+import img5 from "./images/p3.webp"
+import img6 from "./images/p4.webp"
+// import img6 from "./images/p4.webp"
+import img7 from "./images/p5.webp"
 import imgb3 from "./images/b3.jpg"
 import imgf1 from "./images/f1.webp"
 
@@ -129,7 +135,7 @@ let currentIndex = 0;
   </div>
 
   <div className="product-box">
-    <div className="product-image">< img  src={imgn1} width="300px"/></div>
+    <div className="product-image">< img  src={img3} width="300px"/></div>
     <div className="product-details">
       <div className="product-title">Allen Solly Men's T-Shirt</div>
       <p>Best Tshit you ever worn</p>
@@ -141,7 +147,7 @@ let currentIndex = 0;
   </div>
 
   <div className="product-box">
-    <div className="product-image">< img  src={imgn1} width="300px"/></div>
+    <div className="product-image">< img  src={img4} width="300px"/></div>
     <div className="product-details">
       <div className="product-title">Allen Solly Men's T-Shirt</div>
       <p>Best Tshit you ever worn</p>
@@ -153,7 +159,7 @@ let currentIndex = 0;
   </div>
 
   <div className="product-box">
-    <div className="product-image">< img  src={imgn1} width="300px"/></div>
+    <div className="product-image">< img  src={img5} width="300px"/></div>
     <div className="product-details">
       <div className="product-title">Allen Solly Men's T-Shirt</div>
       <p>Best Tshit you ever worn</p>
@@ -165,7 +171,7 @@ let currentIndex = 0;
   </div>
 
   <div className="product-box">
-    <div className="product-image">< img  src={imgn1} width="300px"/></div>
+    <div className="product-image">< img  src={img6} width="300px"/></div>
     <div className="product-details">
       <div className="product-title">Allen Solly Men's T-Shirt</div>
       <p>Best Tshit you ever worn</p>
@@ -177,7 +183,7 @@ let currentIndex = 0;
   </div>
 
   <div className="product-box">
-    <div className="product-image">< img  src={imgn1} width="300px"/></div>
+    <div className="product-image">< img  src={img7} width="300px"/></div>
     <div className="product-details">
       <div className="product-title">Allen Solly Men's T-Shirt</div>
       <p>Best Tshit you ever worn</p>
@@ -208,21 +214,21 @@ let currentIndex = 0;
 
  
 
-    <div className="container1"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={imgf1}/> </div>
+    <div className="container1"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img4}/> </div>
     </div>
     
-    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={imgf1}/> </div>
+    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img5}/> </div>
     </div>
-    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={imgf1}/> </div>
-    </div>
-    
-    
-    <div className="container1"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={imgf1}/> </div>
+    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img6}/> </div>
     </div>
     
-    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={imgf1}/> </div>
+    
+    <div className="container1"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img7}/> </div>
     </div>
-    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={imgf1}/> </div>
+    
+    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img5}/> </div>
+    </div>
+    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img3}/> </div>
     </div>
     
     </div>
