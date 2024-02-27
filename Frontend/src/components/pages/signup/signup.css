@@ -4,7 +4,7 @@
   justify-content: center;
   justify-content: space-around;
   line-height: 8px;
-  margin-top: 50px;
+  margin-top: 30px;
   /* height: 100vh; */
   /* padding-top: 0px; */
  /* // background-image: url(360_F_355607062_zYMS8jaz4SfoykpWz5oViRVKL32IabTP.jpg); */
@@ -19,7 +19,9 @@
   margin-top: 40px;
   /* display: none; */
 }
-
+.login{
+  margin-top: -2%;
+}
 .login p{
   font-size: 20px;
 }

@@ -1,7 +1,3 @@
-
-
-
-
 .container{
     max-width: 100%;
     height: 70px;
@@ -99,13 +95,13 @@
     position: absolute;
     z-index: 500;
     top: 100%;
-    left: 85%;
-    width: 15%;
-    max-height: 150px;
+    left: 82%;
+    width: 20%;
+    max-height: 270px;
     overflow-y: scroll;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: black;
+    border-radius: 10px;
+    background-color: rgba(72, 71, 71, 0.422);
     color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     /* display: none; */
@@ -204,15 +200,22 @@
   width: 125px;
   padding: 10px;
   position: fixed;
+  
   top: 60px; /* Position it below the toggle button */
   left: 695px;
   z-index: 9999;
-  background:none;
+  border-radius: 10px;
+  background-color: rgba(72, 71, 71, 0.422);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   animation: slideDown 0.3s ease-in-out; /* Falling-down animation */
 }
+.dropdown-content p{
+  color: white;
+}
+
 .dropdown-content p:hover{
   color: #FFC107;
+  border-bottom: #FFC107 solid 2px;
 }
 
 /* Falling-down animation keyframes */

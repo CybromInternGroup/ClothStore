@@ -180,7 +180,7 @@ const toggleDropdowncat = () => {
           <p>Shirt</p>
           <p>T-Shirt</p>
           <p>Jackets</p>
-          <p>Trouser & Pants</p>
+          <p>Trousers</p>
 </NavLink>
           
         </div>
