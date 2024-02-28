@@ -201,8 +201,8 @@
   padding: 10px;
   position: fixed;
   
-  top: 60px; /* Position it below the toggle button */
-  left: 695px;
+  top: 9%; /* Position it below the toggle button */
+  left: 52%;
   z-index: 9999;
   border-radius: 10px;
   background-color: rgba(72, 71, 71, 0.422);
@@ -215,7 +215,7 @@
 
 .dropdown-content p:hover{
   color: #FFC107;
-  border-bottom: #FFC107 solid 2px;
+  border-bottom: #FFC107 solid 3px;
 }
 
 /* Falling-down animation keyframes */

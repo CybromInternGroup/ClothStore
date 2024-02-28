@@ -13,10 +13,16 @@ import { googleLogout } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../slices/userSlice";
 import Footer from "../pages/footer/Footer";
-import mylogo from "./logofinal.png"
+// import mylogo from "./logofinal.png"
+
+
 
 
 const Header = () => {
+
+
+    const mycart = useSelector((state)=>state.cartSlice.cart);
+    const itemLength = mycart.length;
 // const [display,setDisplay]=useState("none");
 const [isdropOpen, setIsdropOpen] = useState(false);
 
@@ -138,7 +144,7 @@ const toggleDropdowncat = () => {
             <motion.div className={match ? " hide" : " sideicons"}>
                 <input className="input2" type="text" id="searchinput" />
                 <FaSearch style={colorset?{color:"white"}:{color:"black"}} className="icon" id="searchicon" onClick={searchclick} onMouseOver={searchent} onMouseOut={searchout} />
-                <FaShoppingCart style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={cartfilled} />
+                <FaShoppingCart style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={cartfilled} />{itemLength}
                 {isLogin ?  <CgProfile style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={toggleDropdown}/> : <IoMdLogIn style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/login")} />}
             
                 {/* <div className="dropdown-container"> */}
