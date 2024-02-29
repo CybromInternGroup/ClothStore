@@ -32,9 +32,19 @@ const  loadProductData= async ()=>{
 
     const navigate=useNavigate();
 
-    const gotoshowproduct=()=>{
-        navigate('/showproduct')
+
+    const AllProductData=((id,name , description,category,price,regularPrice,images,size)=>{
+        dispatch(addtocart ({id:id ,name:name ,description:description,category:category,price:price,regularPrice:regularPrice,images:images,size:size} ))
+        console.log("Data is comming");
+        console.log({name});
+    })
+
+    const gotoshowproduct = (id, name, description, category, price, regularPrice, images, size) => {
+        const productData = { id, name, description, category, price, regularPrice, images, size };
+        AllProductData(productData);
+        navigate('/showproduct', { state: productData });
     }
+    
     return (
     <> 
     
@@ -142,7 +152,7 @@ const  loadProductData= async ()=>{
                 
                 <div className="ProductDiv">
                     
-                    <img onClick={gotoshowproduct} src={key.images[0]} alt=""/>
+                    <img onClick={()=>gotoshowproduct(key._id,key.name , key.description,key.category,key.price,key.regularPrice,key.images,key.size)} src={key.images[0]} alt=""/>
                     <div className="prodetail">
                     <p style={{fontSize:"25px",marginTop:"10px"}}>{key.name}</p>
                     <p>{key.description}</p>

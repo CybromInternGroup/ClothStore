@@ -21,10 +21,14 @@ reducers:{
             console.log("add to cart : ",action.payload.id);
         }
 
-    }
+    },
+    removeProductFromCart(state, action) {
+        const productIdToRemove = action.payload; // Product ID to remove
+        state.cart = state.cart.filter(product => product.id !== productIdToRemove);
+      },
   }
 })
 
 
-export const { addtocart } = cartSlice.actions;
+export const { addtocart ,removeProductFromCart} = cartSlice.actions;
 export default cartSlice.reducer

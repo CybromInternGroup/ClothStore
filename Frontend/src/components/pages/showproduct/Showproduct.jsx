@@ -1,11 +1,32 @@
 import "./showproduct.css"
-import img1 from "../showproduct/img/img1.webp"
-import img2 from "../showproduct/img/img2.webp"
-import img3 from "../showproduct/img/img3.webp"
-import img4 from "../showproduct/img/img4.webp"
-import img5 from "../showproduct/img/img5.webp"
-import { useState } from "react"
+// import img1 from "../showproduct/img/img1.webp"
+// import img2 from "../showproduct/img/img2.webp"
+// import img3 from "../showproduct/img/img3.webp"
+// import img4 from "../showproduct/img/img4.webp"
+// import img5 from "../showproduct/img/img5.webp"
+import { useState ,useEffect} from "react"
+import axios from "axios"
+// import { useSelector } from "react-redux";
+import { useLocation } from 'react-router-dom';
+
+
+
 const Showproduct=()=>{
+
+  // const [proData,setProData] = useState([]); 
+  // const allproduct = useSelector((state)=>state.cartSlice.cart);
+  // const dispatch = useDispatch();
+
+  // console.log(allproduct);
+
+  const location = useLocation();
+  const productData = location.state;
+
+  console.log("my data" ,productData);
+
+  // Access individual properties if needed
+  const { id, name, description, category, price, regularPrice, images, size } = productData;
+
 const [myimg,setimg]=useState()
 return(
     <>
@@ -18,43 +39,43 @@ return(
 
        {/* product details part start  */}
       <div className="product_details">
-   {/* <!-- multiple image part start  */}
+        {/* <!-- multiple image part start  */}
         <div className="multiple_product_image">
           <div>
             <img
               id="muliple_img1"
-              src={img2}
+              src={images[0]}
               alt=""
-              onLoad={()=>{setimg(img2)}}
-              onClick={()=>{setimg(img2)}}
-              onMouseEnter={()=>{setimg(img2)}}
+              onLoad={()=>{setimg(images[1])}}
+              onClick={()=>{setimg(images[2])}}
+              onMouseEnter={()=>{setimg(images[3])}}
             />
           </div>
           <div>
             <img
               id="muliple_img2"
-              src={img3}
+              src={images[1]}
               alt=""
-              onClick={()=>{setimg(img3)}}
-              onMouseEnter={()=>{setimg(img3)}}
+              onClick={()=>{setimg(images[1])}}
+              onMouseEnter={()=>{setimg(images[1])}}
             />
           </div>
           <div>
             <img
               id="muliple_img3"
-              src={img4}
+              src={images[2]}
               alt=""
-              onClick={()=>{setimg(img4)}}
-              onMouseEnter={()=>{setimg(img4)}}
+              onClick={()=>{setimg(images[2])}}
+              onMouseEnter={()=>{setimg(images[2])}}
             />
           </div>
           <div>
             <img
               id="muliple_img4"
-              src={img5}
+              src={images[3]}
               alt=""
-              onClick={()=>{setimg(img5)}}
-              onMouseEnter={()=>{setimg(img5)}}
+              onClick={()=>{setimg(images[3])}}
+              onMouseEnter={()=>{setimg(images[3])}}
             />
           </div>
           
@@ -76,13 +97,13 @@ return(
         {/* <!-- product details start --> */}
         <div className="product_desc">
           <div className="web_name">
-            <h6>AS FASHION</h6>
-            <p id = "product_name_main">Meteore Grey Half Sleeve T-Shirt</p>
+            <h6>{name}</h6>
+            <p id = "product_name_main">{description}</p>
             
             </div>
             <div className="price">
-              <p >₹349</p>
-              <p >strick price</p>
+              <p >{price}</p>
+              <p style={{textDecoration:"line-through"}} >{regularPrice}</p>
               <p id = "product_discount_percentage_main" >Discount</p>
             </div>
             <p>Inclusive of taxes</p>
@@ -97,13 +118,14 @@ return(
               <h3>Select Size</h3>
               <p><a href="">Size Guide</a></p>
             </div>
+
             <div id="product_size_option">
               <span><p>S</p></span>
               <span><p>M</p></span>
               <span><p>L</p></span>
               <span><p>XL</p></span>
-
             </div>
+
             <div className="add_product_in_cart">
               <button>Add To Bag</button>
             </div>

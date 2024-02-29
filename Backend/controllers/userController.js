@@ -10,27 +10,24 @@ res.json(data)
 }
 
 const getUser = async (req,res)=>{
-console.log(req.params.email)
-let data = await user.findOne({email:req.params.email})
-if(data){
-    res.json({
-        signup:false,
-        message:"user allready exixt"
-    })
+    console.log(req.params.email)
+    let data = await user.findOne({email:req.params.email})
+    if(data){
+        res.json({
+            signup:false,
+            message:"user allready exixt"
+        })
+    }else{
+        res.json({
+            signup:true
+        })
+    }
 }
-else{
-    res.json({
-        signup:true
-    })
-}
-}
-
 
 const setUser = async (req,res)=>{
 
 let data = await new user(req.body)
-data.save().then(data=>{
-
+    data.save().then(data=>{
     console.log(data)
     sendmail(req,res)
     res.json(data);
