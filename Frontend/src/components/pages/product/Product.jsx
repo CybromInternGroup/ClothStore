@@ -1,80 +1,50 @@
 import "./product.css"
-import img1 from "./img/1.webp"
-import img2 from "./img/2.webp"
-import img3 from "./img/3.webp"
-import img4 from "./img/4.webp"
-import img5 from "./img/5.webp"
-import img6 from "./img/6.webp"
-import img7 from "./img/7.webp"
+import axios from "axios"
 import {useNavigate} from "react-router-dom"
-const array=[
-    {
-        img:img1,
-        discription:"first compoent",
-        rate:"1366"
-    },
-    {
-        img:img2,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img3,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img4,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img5,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img6,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img7,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img1,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img2,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img3,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img3,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img5,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img6,
-        discription:"first compoent",
-        rate:"1366"
-    },{
-        img:img7,
-        discription:"first compoent",
-        rate:"1366"
-    },
-]
-
+import { useEffect,useState } from "react";
+import { useSelector , useDispatch } from "react-redux";
+import { addtocart } from "../../../slices/cartSlice";
 const Product = ()=>{
+
+    const [proData,setProData] = useState([]); 
+    const mycart = useSelector((state)=>state.cartSlice.cart);
+    const dispatch = useDispatch();
+    
+    console.log(mycart);
+    
+const  loadProductData= async ()=>{
+  
+    await axios.get("http://localhost:8000/AdminproductDisplay").then((res)=>{
+      console.log(res.data);
+      setProData(res.data)
+    }).catch((error)=>{
+      console.log("Error While Featching Data",error);
+    })
+  }
+  
+  useEffect(()=>{
+    loadProductData()
+  },[])
+
+  const myproductAdd=(id,name , description,category,price,regularPrice,images,size )=>{
+    dispatch(addtocart ({id:id ,name:name ,description:description,category:category,price:price,regularPrice:regularPrice,images:images,size:size} ))
+  }
 
     const navigate=useNavigate();
 
-    const gotoshowproduct=()=>{
-        navigate('/showproduct')
+
+    const AllProductData=((id,name , description,category,price,regularPrice,images,size)=>{
+        // dispatch(addtocart ({id:id ,name:name ,description:description,category:category,price:price,regularPrice:regularPrice,images:images,size:size} ))
+        console.log("Data is comming");
+        console.log({name});
+    })
+
+    const gotoshowproduct = (id, name, description, category, price, regularPrice, images, size) => {
+        const productData = { id, name, description, category, price, regularPrice, images, size };
+        AllProductData(productData);
+        navigate('/showproduct', { state: productData });
     }
+    
     return (
     <> 
     
@@ -178,72 +148,22 @@ const Product = ()=>{
         </div>
     
         <div className="product_item_box">
-            {array.map((key)=>
+            {proData.map((key)=>
                 
-                <div>
-                    <img src={key.img} alt=""/>
+                <div className="ProductDiv">
+                    
+                    <img onClick={()=>gotoshowproduct(key._id,key.name , key.description,key.category,key.price,key.regularPrice,key.images,key.size)} src={key.images[0]} alt=""/>
                     <div className="prodetail">
-                    <h6>{key.discription}</h6>
-                    <p>{key.rate}</p>
-                     <button className="procartbutton">Add to cart</button></div>
-                </div>)}
-                {/* <div className="productbox" onClick={gotoshowproduct} >
-                    <img src={img1} alt=""/>
-                    <div className="prodetail">
-                    <h6>Men's Black & Grey Color Block</h6>
-                    <p>₹1299</p>
-                     <button className="procartbutton">Add to cart</button></div>
-                </div>
-               
-                <div  className="productbox">
-                    <img src={img2} alt=""/>
-                    <div className="prodetail">
-                    <h6>Men's Black & Grey Color Block</h6>
-                    <p>₹1299</p>
-                     <button className="procartbutton">Add to cart</button></div>
-                </div>
-                
-                <div>
-                    <img src={img3} alt=""/>
-                    <div className="prodetail">
-                    <h6>Men's Black & Grey Color Block</h6>
-                    <p>₹1299</p>
-                     <button className="procartbutton">Add to cart</button></div>
-                </div>
-                
-                <div>
-                    <img src={img4} alt=""/>
-                    <div className="prodetail">
-                    <h6>Men's Black & Grey Color Block</h6>
-                    <p>₹1299</p>
-                     <button className="procartbutton">Add to cart</button></div>
-                </div>
-                
-                <div>
-                    <img src={img5}alt=""/>
-                    <div className="prodetail">
-                    <h6>Men's Black & Grey Color Block</h6>
-                    <p>₹1299</p>
-                     <button className="procartbutton">Add to cart</button></div>
-                </div>
-                
-                <div>
-                    <img src={img6} alt=""/>
-                    <div className="prodetail">
-                    <h6>Men's Black & Grey Color Block</h6>
-                    <p>₹1299</p>
-                     <button className="procartbutton">Add to cart</button></div>
-                </div>
+                    <p style={{fontSize:"25px",marginTop:"10px"}}>{key.name}</p>
+                    <p>{key.description}</p>
+                    <p  style={{fontSize:"22px"}}>Rs. {key.price}  <span style={{fontSize:"14px",textDecoration:"line-through",color:"red"}}>Rs. {key.regularPrice}</span></p> 
+                     <button className="procartbutton"  onClick={()=>myproductAdd(key._id,key.name , key.description,key.category,key.price,key.regularPrice,key.images,key.size)}>Add to cart</button>
+                     {/* <button className="procartbutton" onClick={gotoshowproduct}>Buy Now</button> */}
+                     </div>
+                     <br/>
 
-                
-                <div>
-                    <img src={img7} alt=""/>
-                    <div className="prodetail">
-                    <h6>Men's Black & Grey Color Block</h6>
-                    <p>₹1299</p>
-                     <button className="procartbutton">Add to cart</button></div>
-                </div> */}
-              {/* <!-- product item end here --> */}
+                </div>)}
+               
         </div>
         </div>
     </div></div>
