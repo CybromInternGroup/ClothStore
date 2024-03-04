@@ -1,9 +1,11 @@
 import { Outlet } from "react-router-dom";
 import "./home.css"
 import Slider from "../../slider/Slider";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Chatbox from "../../chatbot/chatbot";
 import { scroller } from "react-scroll";
 
+import chatbot from "../home/images/chatbot.png";
 import imgs2 from "../home/images/s2.webp"
 import imgs3 from "../home/images/s3.webp"
 import imgpro1 from "./images/product1.jpg"
@@ -19,16 +21,17 @@ import img6 from "./images/p4.webp"
 // import img6 from "./images/p4.webp"
 import img7 from "./images/p5.webp"
 import imgb3 from "./images/b3.jpg"
-import imgf1 from "./images/f1.webp"
-
+import ChatPopup from "../../chatbot/chatbot";
 
 const Home = ()=>{
 
-useEffect(()=>{ 
-     
+  const [showChatbox, setShowChatbox] = useState(false);
+
+  const toggleChatPopup = () => {
+    setShowChatbox(!showChatbox);
+  };
 
 
-},[])
 
 let currentIndex = 0;
 
@@ -202,13 +205,6 @@ let currentIndex = 0;
   <div className="banner-container">
     < img  src={imgb3}alt="Banner Image" className="banner-image"/>
   </div>
-
-
-
-  
-  
-
-
   
   <div className="main1" >
 
@@ -233,6 +229,12 @@ let currentIndex = 0;
     
     </div>
 
+
+    <div className="chatbot-icon" onClick={toggleChatPopup}>
+        <img src={chatbot} alt="ChatbotIcon" />
+      </div>
+
+      {showChatbox && <ChatPopup onClose={toggleChatPopup} />}
     </>
 
 }

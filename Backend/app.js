@@ -1,4 +1,4 @@
-const port = process.env.port || 8000
+const port = process.env.port || 7000
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose");
