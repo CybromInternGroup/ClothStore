@@ -3,14 +3,14 @@ import ChatBot from "react-simple-chatbot";
 import { Segment } from "semantic-ui-react";
 import './chatbox.css'; // Import your CSS file
 
-const stepss = [
+const steps = [
     {
       id: "Great",
       message: "Hello, Welcome to our website AS Fashion Factory",
-      trigger: "Ask Name"
+      trigger: "AskName"
     },
     {
-      id: "Ask Name",
+      id: "AskName",
       message: "Please Enter Your Name",
       trigger: "waiting1"
     },
@@ -58,7 +58,7 @@ const stepss = [
 const Chatbot = () => {
   return (
     <Segment  className='chat-popup'>
-      <ChatBot steps={stepss} />
+      <ChatBot steps={steps}  floating={true} />
     </Segment>
   );
 };

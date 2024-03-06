@@ -106,15 +106,8 @@ const toggleDropdowncat = () => {
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
     };
-  
-    // const handleOptionClick = (option) => {
-    //   setSelectedOption(option);
-    //   setIsOpen(false);
-    // };
 
     return <>
-
-
         <motion.div className="container" style={colorset ? { backgroundColor: "black" } : { backgroundColor: 'transparent' }} >
 
 
