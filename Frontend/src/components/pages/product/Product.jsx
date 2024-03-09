@@ -14,7 +14,7 @@ const Product = ()=>{
     
 const  loadProductData= async ()=>{
   
-    await axios.get("http://localhost:8000/AdminproductDisplay").then((res)=>{
+    await axios.get("http://localhost:5000/AdminproductDisplay").then((res)=>{
       console.log(res.data);
       setProData(res.data)
     }).catch((error)=>{
@@ -26,15 +26,21 @@ const  loadProductData= async ()=>{
     loadProductData()
   },[])
 
-  const myproductAdd=(id,name , description,category,price,regularPrice,images,size )=>{
-    dispatch(addtocart ({id:id ,name:name ,description:description,category:category,price:price,regularPrice:regularPrice,images:images,size:size} ))
-  }
+  const myproductAdd = (id, name, description, category, price, regularPrice, images, sizeData) => {
+    // Extract default size from the size data array
+    const defaultSize = sizeData[0];
+    
+    // Check if default size exists and create the size object accordingly
+    const size = defaultSize ? { label: defaultSize.label, quantity: defaultSize.quantity } : null;
 
+    // Dispatch the addtocart action with the extracted size object
+    dispatch(addtocart({ id, name, description, category, price, regularPrice, images, size }));
+}
     const navigate=useNavigate();
 
 
     const AllProductData=((id,name , description,category,price,regularPrice,images,size)=>{
-        dispatch(addtocart ({id:id ,name:name ,description:description,category:category,price:price,regularPrice:regularPrice,images:images,size:size} ))
+        // dispatch(addtocart ({id:id ,name:name ,description:description,category:category,price:price,regularPrice:regularPrice,images:images,size:size} ))
         console.log("Data is comming");
         console.log({name});
     })

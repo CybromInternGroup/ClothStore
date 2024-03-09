@@ -1,4 +1,4 @@
-const port = process.env.port || 7000
+const port = process.env.port || 5000
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose");
@@ -8,7 +8,7 @@ const ErrorHandler = require("./ErrorHandler")
 
 require("dotenv").config()
 
-mongoose.connect("mongodb://127.0.0.1:27017/ecom" ).then(data=>{
+mongoose.connect("mongodb://127.0.0.1:27017/ASFASHION" ).then(data=>{
 
 console.log("Data connected")
 

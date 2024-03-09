@@ -6,21 +6,27 @@ import "./showproduct.css"
 // import img5 from "../showproduct/img/img5.webp"
 import { useState ,useEffect} from "react"
 import axios from "axios"
-// import { useSelector } from "react-redux";
+import { useDispatch ,useSelector} from "react-redux";
 import { useLocation } from 'react-router-dom';
+import {addtocart} from "../../../slices/cartSlice"
 
 
 
 const Showproduct=()=>{
 
   // const [proData,setProData] = useState([]); 
-  // const allproduct = useSelector((state)=>state.cartSlice.cart);
-  // const dispatch = useDispatch();
+  const mycart = useSelector((state)=>state.cartSlice.cart);
+  const dispatch = useDispatch();
 
   // console.log(allproduct);
 
+  // const [selectedSize, setSelectedSize] = useState("");
+  const [selectedSize, setSelectedSize] = useState(null); // Initialize selectedSize as null
+
   const location = useLocation();
   const productData = location.state;
+
+
 
   console.log("my data" ,productData);
 
@@ -28,6 +34,47 @@ const Showproduct=()=>{
   const { id, name, description, category, price, regularPrice, images, size } = productData;
 
 const [myimg,setimg]=useState()
+
+
+
+const handleSizeSelect = (sizeObj) => {
+  setSelectedSize(sizeObj);
+  console.log("Selected Size:", sizeObj);
+};
+
+const myproductAdd = () => {
+  if (selectedSize) {
+    const existingCartItem = mycart.find((item) => item.id === id && item.size.label === selectedSize.label);
+    if (existingCartItem) {
+      dispatch(addtocart({ ...existingCartItem, quantity: existingCartItem.quantity + 1 }));
+      console.log("Product quantity updated in Cart");
+    } else {
+      const existingDifferentLabelItem = mycart.find((item) => item.id === id && item.size.label !== selectedSize.label);
+      if (existingDifferentLabelItem) {
+        dispatch(addtocart({ ...existingDifferentLabelItem, size: selectedSize, quantity: 1 }));
+        console.log("New Product Added to Cart with Different Label");
+      } else {
+        dispatch(addtocart({ id, name, description, category, price, regularPrice, images, size: selectedSize, quantity: 1 }));
+        console.log("New Product Added to Cart");
+      }
+    }
+  } else {
+    alert("Please select a size");
+  }
+};
+
+
+
+
+// const myproductAdd = (productData) => {
+//   dispatch(addtocart(productData));
+//   alert("Product added to cart");
+//     console.log({name});
+// };
+
+
+
+
 return(
     <>
      <div id="margin-top-slider1"></div>
@@ -115,19 +162,25 @@ return(
             <hr />
             
             <div id="product_size">
-              <h3>Select Size</h3>
-              <p><a href="">Size Guide</a></p>
-            </div>
+                            <h3>Select Size</h3>
+                            <p><a href="">Size Guide</a></p>
+                        </div>
+                        <div id="product_size_option">
+                            {size.map((s, index) => (
+                                           <span
+                                           key={index}
+                                           className={`ProSizes ${selectedSize === s ? "selected" : ""}`}
+                                           onClick={() => handleSizeSelect(s)}
+                                         >
+                                           <p>{s.label}</p>
+                                         </span>
+                                 
+                            ))}
+                        </div>
 
-            <div id="product_size_option">
-              <span><p>S</p></span>
-              <span><p>M</p></span>
-              <span><p>L</p></span>
-              <span><p>XL</p></span>
-            </div>
 
             <div className="add_product_in_cart">
-              <button>Add To Bag</button>
+            <button className="procartbutton" onClick={myproductAdd}>Add to cart</button>
             </div>
             <hr />
             <div className="special_price_div">

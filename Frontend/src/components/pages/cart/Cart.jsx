@@ -9,9 +9,8 @@ const Cart = () => {
   const [quantities, setQuantities] = useState({});
 
   const mycart = useSelector((state) => state.cartSlice.cart);
+  const dispatch = useDispatch();
 
-
-  const dispatch = useDispatch()
   const handleQuantityChange = (productId, quantity) => {
     setQuantities((prevQuantities) => ({
       ...prevQuantities,
@@ -29,10 +28,9 @@ const Cart = () => {
     });
   };
 
-
   const allCardProduct = mycart.map((product) => {
     const selectedQuantity = quantities[product.id] || 1;
-
+    const sizeQuantity = product.size ? product.size.quantity : 0; // Ensure size exists before accessing quantity
     return (
       <div key={product.id} id="cart-dom-clear">
         <div id="cart-push-prdt">
@@ -40,7 +38,7 @@ const Cart = () => {
             <div id="cart-descr">
               <p style={{ fontSize: "22px" }}>{product.name}</p>
               <p id="actual_price" style={{ fontSize: "20px" }}>
-                ₹{product.price }{" "}
+                ₹{product.price}{" "}
                 <span id="mrp-price"></span>
               </p>
               <div>
@@ -48,7 +46,7 @@ const Cart = () => {
                   You saved ₹{product.regularPrice - product.price}!
                 </p>
                 <p style={{ color: "red" }}>
-                  Hurry! Only {product.size[0].quantity} Left!
+                  Hurry! Only {sizeQuantity} Left!
                 </p>
               </div>
               <div id="size-qty">
@@ -61,7 +59,7 @@ const Cart = () => {
                   >
                     {/* Map over available quantities */}
                     {Array.from(
-                      { length: product.size[0].quantity },
+                      { length: sizeQuantity }, // Use sizeQuantity as the length
                       (_, i) => i + 1
                     ).map((qty) => (
                       <option key={qty}>{qty}</option>
@@ -76,7 +74,7 @@ const Cart = () => {
           </div>
           <hr />
           <div id="remove-wishlist">
-            <div onClick={() => removeItem(product.id) } style={{cursor:"pointer"}}>Remove</div>
+            <div onClick={() => removeItem(product.id)} style={{ cursor: "pointer" }}>Remove</div>
             <div>Add to Wishlist</div>
           </div>
         </div>
@@ -91,14 +89,16 @@ const Cart = () => {
 
   const totalPrice = mycart.reduce((total, product) => {
     const selectedQuantity = quantities[product.id] || 1;
-    return total + product.price * selectedQuantity;
+    return (total + product.regularPrice * selectedQuantity);
   }, 0);
+
 
   const SubTotalPrice = mycart.reduce(
     (total, product) =>
       total + (quantities[product.id] || 1) * product.price,
     0
   );
+  
 
   return (
     <>
@@ -146,11 +146,13 @@ const Cart = () => {
                   <div>
                     <p>Total MRP (Incl. of taxes)</p>
                     <p>Delivery Fee </p>
+                    <p>Discount </p>
                     <p>Subtotal </p>
                   </div>
                   <div>
                     <p className="total_calculate_price">{totalPrice}</p>
                     <p style={{ color: " rgb(5, 227, 57)" }}>FREE</p>
+                    <p className="Subtotal">{totalPrice-SubTotalPrice}</p>
                     <p className="Subtotal">{SubTotalPrice}</p>
                   </div>
                 </div>

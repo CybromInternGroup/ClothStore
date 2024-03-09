@@ -1,8 +1,11 @@
 const { getCategory, setCategory, deleteCategory, updateCategory } = require("./controllers/categoryController")
 const { getProduct, setProduct, imageUp, authenticator, upload } = require("./controllers/productController")
 const { setUser, getUsers, getUser, authenticate, updatePassword } = require("./controllers/userController")
+// const AdminProductController = require("./controllers/AdminController")  //admin controller
+const { AdminSave,AdminproductDisplay,AdminproductDelete} = require("./controllers/AdminController")  //admin controller
 const {sendmail} = require("./controllers/mailController")
 const { forgotPassword, resetPassword } = require("./controllers/passwordController")
+
 const router = require("express").Router()
 
 
@@ -42,5 +45,10 @@ router.route("/forgotpassword").post(forgotPassword)
 router.route("/resetpassword").post(resetPassword)
 router.route("/changepassword").post(updatePassword)
 
+
+// Admin routes
+router.route("/Adminaddproduct") .post(AdminSave);
+router.route("/AdminproductDisplay").get(AdminproductDisplay);
+router.route("/api/AdminProductModel/:id").delete(AdminproductDelete);
 
 module.exports = router

@@ -216,3 +216,13 @@ margin-top: 10px;
 .multiple_product_image>div{
     cursor: pointer;
 }
+
+.selected {
+    background-color: #FFC107;
+    cursor: pointer;
+}
+
+.ProSizes:hover {
+    background-color: #FFC107;
+    cursor: pointer;
+}
