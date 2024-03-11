@@ -45,10 +45,12 @@ const Cart = () => {
                 <p className="green-color">
                   You saved ₹{product.regularPrice - product.price}!
                 </p>
-                <p style={{ color: "red" }}>
-                  Hurry! Only {sizeQuantity} Left!
+                <p style={{color : sizeQuantity > 3 ? 'green' : 'red'}}>
+                  {sizeQuantity < 3 ? `Hurry! Only ${sizeQuantity} Left!` : 'In stock'}
                 </p>
               </div>
+             Size : <span style={{marginRight:"20px"}}>{product.size.label}</span>  Qty : 
+                  
               <div id="size-qty">
                 <div id="qty">
                   <select
@@ -146,14 +148,14 @@ const Cart = () => {
                   <div>
                     <p>Total MRP (Incl. of taxes)</p>
                     <p>Delivery Fee </p>
-                    <p>Discount </p>
+                    <p  style={{ color: " rgb(5, 227, 57)" }}>Discount </p>
                     <p>Subtotal </p>
                   </div>
                   <div>
-                    <p className="total_calculate_price">{totalPrice}</p>
+                    <p className="total_calculate_price">₹{totalPrice}</p>
                     <p style={{ color: " rgb(5, 227, 57)" }}>FREE</p>
-                    <p className="Subtotal">{totalPrice-SubTotalPrice}</p>
-                    <p className="Subtotal">{SubTotalPrice}</p>
+                    <p className="Subtotal" style={{ color: " rgb(5, 227, 57)" }}>₹{totalPrice-SubTotalPrice}</p>
+                    <p className="Subtotal">₹{SubTotalPrice}</p>
                   </div>
                 </div>
                 <div
@@ -162,7 +164,7 @@ const Cart = () => {
                 >{`You are saving ₹${totalPrice - SubTotalPrice} on this order`}</div>
                 <div id="Total-amount-address">
                   <div>
-                    <p style={{ fontSize: "20px" }}>Total : {SubTotalPrice}</p>
+                    <p style={{ fontSize: "20px" }}>Total : ₹ {SubTotalPrice}</p>
                   </div>
                   <div>
                     <button

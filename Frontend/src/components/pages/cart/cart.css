@@ -223,7 +223,8 @@
 }
 #size-qty {
     display: flex;
-    margin-top: -30px;
+    margin-left: 100px;
+    margin-top: -58px;
 }
 #size-qty>div {
     width: 70px;

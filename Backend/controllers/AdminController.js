@@ -10,6 +10,9 @@ const AdminproductDisplay= async(req,res)=>{
     })
 }
 
+
+
+
 const AdminproductDelete = async (req, res) => {
     try {
       const productId = req.params.id;
@@ -26,8 +29,35 @@ const AdminproductDelete = async (req, res) => {
     }
   };
 
+
+  const AdminUpdate = async (req, res) => {
+    const adminId = req.params.id;
+    const updatedAdminData = req.body;
+  
+    try {
+      // Find the admin by ID and update its data
+      const updatedAdmin = await AdminProductModel.findByIdAndUpdate(
+        adminId,
+        { $set: updatedAdminData },
+        { new: true }
+      );
+  
+      // Check if the admin was found and updated
+      if (updatedAdmin) {
+        res.status(200).json(updatedAdmin);
+      } else {
+        res.status(404).json({ error: "Admin not found" });
+      }
+    } catch (error) {
+      console.error("Error updating admin:", error);
+      res.status(500).json({ error: "Internal server error" });
+   }
+};
+
+
 module.exports={
     AdminSave,
     AdminproductDisplay,
-    AdminproductDelete
+    AdminproductDelete,
+    AdminUpdate
 }

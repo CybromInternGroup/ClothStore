@@ -2,7 +2,7 @@ const { getCategory, setCategory, deleteCategory, updateCategory } = require("./
 const { getProduct, setProduct, imageUp, authenticator, upload } = require("./controllers/productController")
 const { setUser, getUsers, getUser, authenticate, updatePassword } = require("./controllers/userController")
 // const AdminProductController = require("./controllers/AdminController")  //admin controller
-const { AdminSave,AdminproductDisplay,AdminproductDelete} = require("./controllers/AdminController")  //admin controller
+const { AdminSave,AdminproductDisplay,AdminproductDelete,AdminUpdate} = require("./controllers/AdminController")  //admin controller
 const {sendmail} = require("./controllers/mailController")
 const { forgotPassword, resetPassword } = require("./controllers/passwordController")
 
@@ -50,5 +50,6 @@ router.route("/changepassword").post(updatePassword)
 router.route("/Adminaddproduct") .post(AdminSave);
 router.route("/AdminproductDisplay").get(AdminproductDisplay);
 router.route("/api/AdminProductModel/:id").delete(AdminproductDelete);
+router.route("/Adminupdateproduct/:id").post(AdminUpdate)
 
 module.exports = router

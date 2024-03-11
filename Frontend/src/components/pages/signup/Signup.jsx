@@ -1,56 +1,53 @@
 import  "./signup.css"
 import axios from "axios"
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import React from 'react';
+import ReactLoading from 'react-loading';
 //import boximg from "../Components/signupback.jpg";
 
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-// const Signup = ()=>{
 
+// const Signup = ()=>{
 //     let navigate = useNavigate(); 
 //     const routeChange = () =>{ 
 //       let path = Home; 
 //       navigate(path);
-//     }
-const Signup = ()=>{
+// }
+
+const Signup = ({ type, color })=>{
     const navigate = useNavigate();
-
-    const handleClick = () => {
-      navigate('/home');
-    };
-
+    // const handleClick = () => {
+    //   navigate('/home');
+    // };
 const [userData, setUserData] = useState({
     name:"",
     mobile:"",
     email:"",
     password:""
 })
+
 const [checkPass, setCheckPass] = useState("")
 
 const handlechange = (e)=>{
-
     setUserData((prev)=>{
-        
         return {...prev,
             [e.target.name]:e.target.value
         }
-
     })
-
-
 }
+
 const checkPassword=(e)=>{
-
     setCheckPass(e.target.value)
-
 }
 
 
 const saveData =  async ()=>{
 
     if(checkPass !== userData.password){
-
-        alert("password did not match")
+        // alert("password did not match")
+        toast.error("password did not match")
     }
     else {
 
@@ -60,23 +57,23 @@ const saveData =  async ()=>{
 
         if(res.data.signup){
     
- let data = await axios.post("http://localhost:5000/user", userData)
-         alert("user resistered successfully")
+            let data = await axios.post("http://localhost:5000/user", userData)
+                    // alert("user resistered successfully")
+                    toast.success("User Resistered Successfully !")
+
+                    setTimeout(()=>{
+
+                        navigate('/login');
+                    },2000)
 
         }
         else{
-
-alert(res.data.message)
+           alert(res.data.message)
+           toast.error("Something went worng")
 
         }
 
         })
-        
-
-
-
-
-
     }
 }
 
@@ -99,11 +96,14 @@ alert(res.data.message)
                     <br /><br />
                 <input type="text" placeholder="Name" name="name" onChange={handlechange}/><br />
                 <input type="text" placeholder="Mobile" name="mobile" onChange={handlechange}/><br />
-                <input type="text" placeholder="Email ID" name="email" onChange={handlechange} /><br />
-                <input type="text" placeholder="Password" name="password" onChange={handlechange}/><br/>
-                <input type="text" placeholder="Confirm Password"  onChange={checkPassword}/><br/>
+                <input type="email" placeholder="Email ID" name="email" onChange={handlechange} /><br />
+                <input type="password" placeholder="Password" name="password" onChange={handlechange}/><br/>
+                <input type="password" placeholder="Confirm Password"  onChange={checkPassword}/><br/>
                 <button className="btn-flip" data-back="Welcome to Our family" data-front="SignIn" onClick={saveData} ></button>
                 
+
+                <ToastContainer />
+                <ReactLoading type={type} color={color} height={'20%'} width={'20%'} />
             </div>
 
             </div>
