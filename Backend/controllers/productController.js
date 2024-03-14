@@ -1,4 +1,4 @@
-const category = require("../models/category");
+// const category = require("../models/category");
 const product = require("../models/product")
 const ImageKit = require("imagekit");
 const multer = require("multer");

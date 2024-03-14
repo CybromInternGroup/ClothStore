@@ -1,76 +1,26 @@
-const category = require("../models/category")
+const Category= require("../models/category")
 
 
+const addcatogory = async (req,res,next)=>{
+    try{
+        const Catogory = req.body;
+        const newCatogory = new Category(Catogory)
 
-const setCategory = async (req, res, next) => {
-
-
+        const saveCatogory = await newCatogory.save()
+        res.json(saveCatogory)
+    } catch(error){
+        next(error)
+    }
+}
+const getCategories = async (req, res, next) => {
     try {
-        let data = new category(req.body)
-
-        data.save().then((data) => {
-            res.json(data)
-        })
-
+        const categories = await Category.find({});
+        res.json(categories);
+    } catch (error) {
+        next(error);
     }
-    catch (err) {
-
-        next(err)
-    }
-
-
-}
-
-
-const getCategory = async (req, res) => {
-
-
-    let data = await category.find().populate("product")
-    if (data) {
-
-        res.json(data)
-
-    }
-    else {
-        res.send("couldnt find anything")
-    }
+};
 
 
 
-}
-
-
-
-const updateCategory = async (req,res)=>{
-
-
-
-
-}
-
-
-
-const deleteCategory = async (req, res, next) => {
-
-
-    try {
-
-        console.log(req.params.id)
-        let data = await category.findOneAndDelete({ _id: req.params.id })
-        console.log(data)
-        res.json(data)
-    
-
-    }
-    catch (err) {
-
-        next(err)
-    }
-
-
-
-}
-
-
-module.exports = { setCategory, getCategory, updateCategory, deleteCategory }
-
+module.exports = {addcatogory,getCategories}

@@ -9,6 +9,7 @@ const Cart = () => {
   const [quantities, setQuantities] = useState({});
 
   const mycart = useSelector((state) => state.cartSlice.cart);
+  
   const dispatch = useDispatch();
 
   const handleQuantityChange = (productId, quantity) => {

@@ -38,4 +38,5 @@ reducers:{
 
 
 export const { addtocart ,removeProductFromCart} = cartSlice.actions;
+
 export default cartSlice.reducer

@@ -1,11 +1,12 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-    category: {
+    brand: {
         type: String,
         // required: true
     }
-})
+});
 
-const Procategory = mongoose.model("ProductCategory",productSchema)
-module.exports = Procategory;
+const Probrand = mongoose.model("Productbrand", productSchema);
+
+module.exports = Probrand;
