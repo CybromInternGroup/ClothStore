@@ -6,6 +6,7 @@ const {sendmail} = require("./controllers/mailController")
 const { forgotPassword, resetPassword } = require("./controllers/passwordController")
 const {addBrand,getBrands} = require("./controllers/brandController")
 const {addcatogory,getCategories} = require("./controllers/categorycontroller")
+const {setAddress,getaddress}=require("./controllers/addressController")
 const router = require("express").Router()
 
 router.route("/product").get(getProduct).post(setProduct)
@@ -46,6 +47,13 @@ router.route("/getbrand").get(getBrands);
 
 router.route("/addcatogory").post(addcatogory);
 router.route("/getcatogory").get(getCategories);
+
+
+//address routes
+router.route("/addaddress").post(setAddress);
+router.route("/getaddress").get(getaddress);
+
+
 
 
 

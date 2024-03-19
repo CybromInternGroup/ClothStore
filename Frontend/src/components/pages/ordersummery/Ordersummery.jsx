@@ -95,22 +95,22 @@ const Ordersummery=()=>{
 <div className="total-adress-page">
     <div className="adress-overlay">
         <h2>Add New Address</h2>
-        <input type="text" placeholder="Fullname" className="address-fullname"></input>
-        <input type="text" placeholder="Mobile number" className="address-mobilenumber"></input>
-        <input type="pincode" placeholder="Pincode" className="address-pincode"></input>
+        {/* <input type="text" placeholder="Fullname" className="address-fullname"></input>
+        <input type="text" placeholder="Mobile number" className="address-mobilenumber"></input> */}
+        <input type="text" placeholder="Flatno/Building,Street name" className="address-flatno"></input>
         <div id="city-district">
             <input type="text" placeholder="City/District" className="address-city-district"></input>
             <input type="text" placeholder="State" className="address-state"></input>
         </div>
-        <input type="text" placeholder="Flatno/Building,Street name" className="address-flatno"></input>
         <input type="text" placeholder="Area/Locality" className="address-area"></input>
-        <input type="text" placeholder="Landmark(optional)" className="address-landmark"></input>
-        <div className="Save-address-flex">
+        <input type="pincode" placeholder="Pincode" className="address-pincode"></input>
+        {/* <input type="text" placeholder="Landmark(optional)" className="address-landmark"></input> */}
+        {/* <div className="Save-address-flex">
             <p>Save Address As</p>
             <button onclick="home_button()">Home</button>
             <button onclick="office_button()">Office</button>
             <button onclick="other_button()">Other</button>
-        </div>
+        </div> */}
         <div className="saveaddress-cancel">
             <button type="submit" id="btn-address-save">SAVE ADDRESS</button>
             <button>CANCEL</button>
