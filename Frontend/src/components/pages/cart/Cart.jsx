@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 import emptycart from "../cart/emptycart.gif"
-import { removeProductFromCart } from "../../../slices/cartSlice";
+import { removeProductFromCart,setTotalPrice,setSubTotalPrice } from "../../../slices/cartSlice";
 
 const Cart = () => {
   const [quantities, setQuantities] = useState({});
@@ -12,7 +12,7 @@ const Cart = () => {
   const mycart = useSelector((state) => state.cartSlice.cart);
   
   const dispatch = useDispatch();
-
+ 
   const handleQuantityChange = (productId, quantity) => {
     setQuantities((prevQuantities) => ({
       ...prevQuantities,
@@ -105,7 +105,12 @@ const Cart = () => {
       total + (quantities[product.id] || 1) * product.price,
     0
   );
+
   
+  dispatch(setTotalPrice(totalPrice));
+  dispatch(setSubTotalPrice(SubTotalPrice));
+
+
 
   return (
     <>

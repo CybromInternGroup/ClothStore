@@ -5,11 +5,9 @@
 }
 
 #summary-items {
-    font-size: 16px;
+    font-size: 26px;
     font-weight: 700;
     line-height: 16px;
-
-
     margin-left: 200px;
     margin-top: 40px;
 }
@@ -239,12 +237,13 @@ button {
     top: 10%;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 90%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: auto;
+    
     /* visibility: hidden; */
     /* opacity: 0; */
     transition: visbility 0s opacity 0.5s;
@@ -270,6 +269,7 @@ button {
     visibility: visible;
     opacity: 1;
 } */
+padding-left: 15px;
 .adress-overlay input {
     margin: auto;
     width: 90%;
@@ -306,9 +306,13 @@ button {
     width: 49%;
     height: 100%;
     border-radius: 5px;
-    background-color: teal;
-    color: white;
+    background-color: #ffc107;
+    color: black;
     border: none;
+}
+.saveaddress-cancel button:nth-child(1):hover{
+    background-color: #ffc107c9;
+    
 }
 .saveaddress-cancel button:nth-child(2) {
     width: 49%;
@@ -316,7 +320,10 @@ button {
     border-radius: 5px;
     background-color: white;
     color: gray;
-    border: 1px solid teal;
+    border: 2px solid #ffc107;
+}
+.saveaddress-cancel button:nth-child(2):hover {
+    background-color: rgba(229, 229, 229, 0.686);
 }
 #city-district {
     width: 94%;
@@ -332,12 +339,16 @@ button {
     border: 1px solid gray;
 }
 #adress-close {
-    height: 30px;
-    width: 30px;
-    font-size: 30px;
-    color: gray;
+    /* height: 80%;
+    width: 40px; */
+    font-size: 60px;
+    color: black;
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 1%;
+    right: 27%;
+    cursor: pointer;
+}
+
+button{
     cursor: pointer;
 }

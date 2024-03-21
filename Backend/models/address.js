@@ -1,11 +1,25 @@
 const mongoose = require("mongoose");
 
 const addressSchema = new mongoose.Schema({
-    area: {
+    
+    
+    fullname: {
+        type: String,
+        // required: true
+    },
+    mobile: {
+        type: String,
+        // required: true
+    },
+    flatNo: {
         type: String,
         // required: true
     },
     city: {
+        type: String,
+        // required: true
+    },
+    area: {
         type: String,
         // required: true
     },
@@ -14,6 +28,10 @@ const addressSchema = new mongoose.Schema({
         // required: true
     },
     pincode: {
+        type: String,
+        // required: true
+    },
+    landmark: {
         type: String,
         // required: true
     },

@@ -17,6 +17,8 @@ const Product = ()=>{
     const [selectedBrands, setSelectedBrands] = useState([]);
     const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
     const [wishlistIds, setWishlistIds] = useState([]);
+    const [showAllBrands, setShowAllBrands] = useState(false);
+    const [brandsList, setBrandsList] = useState([]); //  
     const mycart = useSelector((state)=>state.cartSlice.cart);
     const wishlist = useSelector((state) => state.cartSlice.wishlist);
     const dispatch = useDispatch();
@@ -37,6 +39,7 @@ const  loadProductData= async ()=>{
   }
   
   useEffect(()=>{
+  fetchBrands()
     loadProductData()
     const urlParams = new URLSearchParams(location.search);
     const initialSearchQuery = urlParams.get("search");
@@ -99,6 +102,20 @@ const handleShowMore = () => {
     }
   };
 
+  //Brand Api 
+
+  const fetchBrands = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/getbrand");
+      setBrandsList(response.data); // Update brands list in state
+    } catch (error) {
+      console.error("Error fetching brands:", error);
+    }
+  };
+
+  const handleShowMoreBrands = () => {
+    setShowAllBrands(!showAllBrands);
+  };
 
   // filter
 
@@ -230,7 +247,7 @@ const handleShowMore = () => {
               <div className="hrline"></div>
               <div className="sub_item">
                 <ul>
-                  {['Pepe', 'Zara', 'Cold', 'Levis', 'Heman', 'SID'].map((brand) => (
+                  {/* {brandsList.map((brand) => (
                     <li key={brand}>
                       <input
                         type="checkbox"
@@ -240,7 +257,29 @@ const handleShowMore = () => {
                       />
                       <label htmlFor={`cb_${brand}`}>{brand}</label>
                     </li>
-                  ))}
+                  ))} */}
+                   {brandsList.slice(0, showAllBrands ? brandsList.length : 4).map((brandObj) => (
+                      <li key={brandObj._id}>
+                        <input
+                          type="checkbox"
+                          id={`cb_${brandObj._id}`}
+                          checked={selectedBrands.includes(brandObj.brand)}
+                          onChange={() => handleBrandFilter(brandObj.brand)}
+                        />
+                        <label htmlFor={`cb_${brandObj._id}`}>{brandObj.brand}</label>
+                      </li>
+                    ))}
+                                        {/* Conditionally render the "Show More" button */}
+                                        {!showAllBrands && brandsList.length > 4 && (
+                            <div className="show-more">
+                              <button onClick={handleShowMoreBrands}>Show More</button>
+                            </div>
+                          )}
+                          {showAllBrands && (
+                            <div className="show-more">
+                              <button onClick={handleShowMoreBrands}>Show Less</button>
+                            </div>
+                          )}
                 </ul>
               </div>
           

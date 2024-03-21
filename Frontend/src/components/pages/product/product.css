@@ -334,6 +334,16 @@ padding: 16px 0px 16px;
 .redHeart {
     color: rgba(255, 0, 0, 0.884);
   }
+  
+
+  .show-more button{
+    width: 100px;
+    height: 25px;
+    background-color: #ECF0F4;
+    border: 0;
+    
+
+  }
 
 @media only screen and (max-width: 450px) {
     .product_item_box
