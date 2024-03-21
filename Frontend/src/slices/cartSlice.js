@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    cart:[]
+    cart:[],
+    wishlist: [],
 };
 
 const cartSlice = createSlice({
@@ -9,34 +10,38 @@ const cartSlice = createSlice({
 name:"cart",
 initialState,
 reducers:{
-    addtocart: (state, action) => {
-        const { id, size } = action.payload;
-        const existingCartItemIndex = state.cart.findIndex(item => item.id === id && item.size.label === size.label);
-        
-        if (existingCartItemIndex !== -1) {
-          // If a product with the same ID and size label already exists, increment its quantity
-          state.cart[existingCartItemIndex].quantity += 1;
-        } else {
-          // If the product is not in the cart, add it as a new item
-          state.cart.push(action.payload);
+    addtocart:(state, action)=>{
+        var myitem = state.cart.filter((key)=>key.id==action.payload.id);
+        // alert(action.payload.id);
+        if(myitem.length>=1)
+        {
+            alert("Already in a Cart");
         }
-      },
+        else{
+            state.cart.push(action.payload);
+            console.log("add to cart : ",action.payload.id);
+        }
 
+    },
     removeProductFromCart(state, action) {
         const productIdToRemove = action.payload; // Product ID to remove
         state.cart = state.cart.filter(product => product.id !== productIdToRemove);
       },
-     
-      clearCart: (state) => {
-        state.cart = [];
+
+      addToWishlist: (state, action) => {
+        // Add the product to the wishlist
+        state.wishlist.push(action.payload);
       },
 
-     
-    }
-
+      removeFromWishlist: (state, action) => {
+        // Remove the product from the wishlist based on the productId
+        state.wishlist = state.wishlist.filter(
+          (product) => product.id !== action.payload
+        );
+      },
+  }
 })
 
 
-export const { addtocart ,removeProductFromCart} = cartSlice.actions;
-
+export const { addtocart ,removeProductFromCart,addToWishlist,removeFromWishlist} = cartSlice.actions;
 export default cartSlice.reducer

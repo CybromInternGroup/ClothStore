@@ -2,7 +2,7 @@ import Header from "./components/layout/Header";
 import { Route, Routes, Link, Router, } from "react-router-dom";
 import Home from "./components/pages/home/Home";
 import Products from "./components/pages/product/Product";
-import Blogs from "./components/pages/Blogs";
+// import Blogs from "./components/pages/Blogs";
 import Login from "./components/pages/login/Login";
 import Signup from "./components/pages/signup/Signup";
 import Tester from "./components/pages/Tester";
@@ -18,6 +18,7 @@ import ProfilePayment from "./components/profile/ProfilePayment";
 import ProfileInfo from "./components/profile/ProfileInfo";
 import AboutUs from "./components/pages/aboutus/AboutUs";
 import Error from "./components/pages/errorpage/Error";
+import Wishlist from "./components/pages/wishlist/wishlist";
 
 
 
@@ -45,6 +46,7 @@ const App = () => {
         <Route path={"/myorder"} element={<OrderPage/>}/>
         <Route path={"/mypayment"} element={<ProfilePayment/>}/>
         <Route path={"/myinfo"} element={<ProfileInfo/>}/>
+        <Route path={"/mywishlist"} element={<Wishlist/>}/>
 
 
       </Route>
@@ -67,4 +69,4 @@ const App = () => {
 
 }
 
-export default App;
+export default App;

@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../slices/userSlice";
 import Footer from "../pages/footer/Footer";
 // import mylogo from "./logofinal.png"
+import { useSearch } from "../../SearchContext";
 
 
 
@@ -25,7 +26,7 @@ const Header = () => {
     const itemLength = mycart.length;
 // const [display,setDisplay]=useState("none");
 const [isdropOpen, setIsdropOpen] = useState(false);
-
+const { searchQuery, setSearchQuery } = useSearch();
 const toggleDropdowncat = () => {
   setIsdropOpen(!isdropOpen);
 };
@@ -96,6 +97,11 @@ const toggleDropdowncat = () => {
         st.focus();
         st.style.outline = "none";
 
+        const trimmedQuery = searchQuery.trim();
+    if (trimmedQuery) {
+      navigate(`/Products?search=${encodeURIComponent(trimmedQuery)}`);
+    }
+
 
     }
 
@@ -106,8 +112,15 @@ const toggleDropdowncat = () => {
     const toggleDropdown = () => {
       setIsOpen(!isOpen);
     };
+  
+    // const handleOptionClick = (option) => {
+    //   setSelectedOption(option);
+    //   setIsOpen(false);
+    // };
 
     return <>
+
+
         <motion.div className="container" style={colorset ? { backgroundColor: "black" } : { backgroundColor: 'transparent' }} >
 
 
@@ -135,7 +148,7 @@ const toggleDropdowncat = () => {
             
 
             <motion.div className={match ? " hide" : " sideicons"}>
-                <input className="input2" type="text" id="searchinput" />
+                <input className="input2" type="text" id="searchinput" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
                 <FaSearch style={colorset?{color:"white"}:{color:"black"}} className="icon" id="searchicon" onClick={searchclick} onMouseOver={searchent} onMouseOut={searchout} />
                 <FaShoppingCart style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={cartfilled} />{itemLength}
                 {isLogin ?  <CgProfile style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={toggleDropdown}/> : <IoMdLogIn style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/login")} />}
@@ -150,6 +163,7 @@ const toggleDropdowncat = () => {
           <div onClick={()=> navigate('/myorder')} >My Orders</div>
           <div onClick={()=> navigate('/mypayment')} >My Payments</div>
           <div onClick={()=> navigate('/myinfo')} >My Info</div>
+          <div onClick={()=> navigate('/mywishlist')} >My Wishlist</div>
           <div>Logout</div>
         </div>
       )}

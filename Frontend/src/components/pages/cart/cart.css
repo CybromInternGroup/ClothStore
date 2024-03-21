@@ -46,6 +46,12 @@
     }
 } */
 
+
+#empty-cart-container img{
+    width: 500px;
+   
+}
+
 #cart-head-const img {
     margin-left: 10px; 
 }

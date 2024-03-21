@@ -19,7 +19,7 @@ const Ordersummery=()=>{
     
    
     return(
-        <>
+        <> 
         <div id="total-order-summary-page">
         
         <p id="summary-items">Order Summary</p>

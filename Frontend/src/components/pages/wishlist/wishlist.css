@@ -1,0 +1,19 @@
+#wishlist-container{
+    margin-top: 5%;
+    /* background-color: black; */
+}
+.circleicon{
+    position: absolute;
+    margin-left: 19%;
+    margin-top: 1%;
+    /* color: red; */
+    /* width: 100px; */
+    color: white; 
+
+  }
+  .facircle{
+    width:30px;
+    height: 30px;
+    /* color: white;   */
+
+}

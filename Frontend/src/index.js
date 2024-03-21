@@ -7,10 +7,12 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { store } from './store/store';
+import { SearchProvider } from './SearchContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+     <SearchProvider>
    <Provider store={store}>
     <GoogleOAuthProvider clientId="182194200123-8r45mfj1tmcnvduo9e8vujui0f1tkvuq.apps.googleusercontent.com">
     <BrowserRouter>
@@ -18,6 +20,7 @@ root.render(
     </BrowserRouter>
     </GoogleOAuthProvider>
     </Provider>
+    </SearchProvider>
   </React.StrictMode>
 );
 

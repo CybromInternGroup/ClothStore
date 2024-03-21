@@ -3,6 +3,7 @@ import truck from "./truck.jpg";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
+import emptycart from "../cart/emptycart.gif"
 import { removeProductFromCart } from "../../../slices/cartSlice";
 
 const Cart = () => {
@@ -33,6 +34,9 @@ const Cart = () => {
     const selectedQuantity = quantities[product.id] || 1;
     const sizeQuantity = product.size ? product.size.quantity : 0; // Ensure size exists before accessing quantity
     return (
+    
+
+      
       <div key={product.id} id="cart-dom-clear">
         <div id="cart-push-prdt">
           <div id="cart-descr-img">
@@ -105,6 +109,13 @@ const Cart = () => {
 
   return (
     <>
+
+       {mycart.length === 0 ? (
+        <div id="empty-cart-container">
+          <img src={emptycart} alt="Empty Cart" />
+          {/* <p>Your cart is empty!</p> */}
+        </div>
+        ) : (
       <div id="cartpage-total-div">
         <p id="total-items-cart">My Bag {mycart.length} item(s)</p>
         <div id="cart-append-change">
@@ -184,6 +195,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 };
