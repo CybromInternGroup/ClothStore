@@ -7,6 +7,7 @@ const { forgotPassword, resetPassword } = require("./controllers/passwordControl
 const {addBrand,getBrands} = require("./controllers/brandController")
 const {addcatogory,getCategories} = require("./controllers/categorycontroller")
 const {setAddress,getaddress}=require("./controllers/addressController")
+const {OrderSave,OrderDisplay} = require("./controllers/orderplacedController")
 const router = require("express").Router()
 
 router.route("/product").get(getProduct).post(setProduct)
@@ -53,6 +54,11 @@ router.route("/getcatogory").get(getCategories);
 router.route("/addaddress").post(setAddress);
 router.route("/getaddress").get(getaddress);
 
+
+
+//Order Placed routes
+router.route("/ordersave").post(OrderSave);
+router.route("/orderdisplay").get(OrderDisplay);
 
 
 
