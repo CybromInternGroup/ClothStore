@@ -14,11 +14,10 @@
 
 .page_404  img{ width:100%;}
 
-.four_zero_four_bg{
- 
- background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif) ;
+.four_zero_four_bg2{
+ margin-top: 100px;
+ background-image: url(https://i.pinimg.com/originals/32/b6/f2/32b6f2aeeb2d21c5a29382721cdc67f7.gif) ;
     height: 400px;
-    margin-top: 7%;
     background-repeat: no-repeat;
     background-position: center;
  }
@@ -46,5 +45,22 @@
         }
     .h2{
         color: black;
+        margin-left: -70%;
         font-size: 30px;
+        text-align: center;
+        animation: wave 1s infinite; /* Apply the wave animation */
     }
+
+    @keyframes wave {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      
+  

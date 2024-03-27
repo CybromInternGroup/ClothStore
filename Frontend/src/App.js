@@ -19,6 +19,7 @@ import ProfileInfo from "./components/profile/ProfileInfo";
 import AboutUs from "./components/pages/aboutus/AboutUs";
 import Error from "./components/pages/errorpage/Error";
 import Wishlist from "./components/pages/wishlist/wishlist";
+import PaymentDone from "./components/pages/paymentdone/paymentdone";
 
 
 
@@ -55,6 +56,7 @@ const App = () => {
       <Route path={"/signup"} element={<Signup/>} />
       <Route path={"/testing"} element={<Tester/>} />
       <Route path = {"/forgotpassword"} element={<Forgotpassword/>} />
+      <Route path = {"/paymentdone"} element={<PaymentDone/>} />
       <Route path="*" element={<Error/>}/>
 
     </Routes>

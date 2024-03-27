@@ -9,10 +9,28 @@
   width: 50%;
     
   }
-  
-  @media (max) {
-    
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha channel for the desired level of opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Set a high z-index to ensure the modal is on top of other elements */
   }
+  
+  .modal-content {
+    /* background-color: white; Or any other background color you prefer */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Optional: Add a box shadow for a subtle effect */
+  }
+
+  
   #payment-price{
     /* border: 1px solid red; */
     justify-content: space-between;

@@ -48,7 +48,15 @@
 
 
 #empty-cart-container img{
-    width: 500px;
+    width: 50%;
+    padding-top: 8%;
+    padding-left: 22%;
+   
+}
+
+
+#empty-cart-container p{
+    font-size: 25px;
    
 }
 

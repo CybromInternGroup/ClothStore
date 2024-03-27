@@ -5,7 +5,7 @@ const Footer=()=>{
     <>
     <div id="customer-section">
         {/* < customer section start */}
-        <h1 style={{marginLeft:"15px"}}>AS FASHION</h1>
+        {/* <h1 style={{marginLeft:"15px"}}>AS FASHION</h1> */}
         <div class="customer-section-grid">
             {/* customer-section-grid start  */}
             <div style={{marginLeft:"15px"}}>
@@ -25,8 +25,8 @@ const Footer=()=>{
             </div>
             <div style={{marginLeft:"12px"}}>
                 <h4>Connect with us</h4>
-                <p><a href="">0 People Like this</a></p>
-                <p><a href="">0 Followers</a></p>
+                <p><a href="">100+ People Like this</a></p>
+                <p><a href="">11k+ Followers</a></p>
             </div>
             <div className="footerupdate">
                 <h4>Keep up to date</h4>

@@ -1,15 +1,12 @@
 import "./showproduct.css"
-// import img1 from "../showproduct/img/img1.webp"
-// import img2 from "../showproduct/img/img2.webp"
-// import img3 from "../showproduct/img/img3.webp"
-// import img4 from "../showproduct/img/img4.webp"
-// import img5 from "../showproduct/img/img5.webp"
+
 import { useState ,useEffect} from "react"
 import axios from "axios"
 import { useDispatch ,useSelector} from "react-redux";
 import { useLocation } from 'react-router-dom';
 import {addtocart} from "../../../slices/cartSlice"
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Showproduct=()=>{
@@ -39,7 +36,7 @@ const [myimg,setimg]=useState()
 
 const handleSizeSelect = (sizeObj) => {
   setSelectedSize(sizeObj);
-  console.log("Selected Size:", sizeObj);
+  // console.log("Selected Size:", sizeObj);
 };
 
 const myproductAdd = () => {
@@ -47,23 +44,21 @@ const myproductAdd = () => {
     const existingCartItem = mycart.find((item) => item.id === id && item.size.label === selectedSize.label);
     if (existingCartItem) {
       dispatch(addtocart({ ...existingCartItem, quantity: existingCartItem.quantity + 1 }));
-      console.log("Product quantity updated in Cart");
+      toast.success('Product quantity updated in Cart', { autoClose: 2000 });
     } else {
       const existingDifferentLabelItem = mycart.find((item) => item.id === id && item.size.label !== selectedSize.label);
       if (existingDifferentLabelItem) {
         dispatch(addtocart({ ...existingDifferentLabelItem, size: selectedSize, quantity: 1 }));
-        console.log("New Product Added to Cart with Different Label");
+        toast.success('New Product Added to Cart with different Size', { autoClose: 2000 });
       } else {
         dispatch(addtocart({ id, name, description, category, price, regularPrice, images, size: selectedSize, quantity: 1 }));
-        console.log("New Product Added to Cart");
+        toast.success('New Product Added to Cart', { autoClose: 2000 });
       }
     }
   } else {
-    alert("Please select a size");
+    toast.error('Please select a size');
   }
 };
-
-
 
 
 // const myproductAdd = (productData) => {
@@ -77,6 +72,7 @@ const myproductAdd = () => {
 
 return(
     <>
+    
      <div id="margin-top-slider1"></div>
     <div className="product_contaainer">
       {/* <!-- title menu start --> */}
@@ -144,13 +140,13 @@ return(
         {/* <!-- product details start --> */}
         <div className="product_desc">
           <div className="web_name">
-            <h6>{name}</h6>
+            <h6 >{name}</h6>
             <p id = "product_name_main">{description}</p>
             
             </div>
             <div className="price">
-              <p >{price}</p>
-              <p style={{textDecoration:"line-through"}} >{regularPrice}</p>
+              <p style={{fontSize:"30px"}}>₹{price}</p> &nbsp;&nbsp;
+              <p style={{textDecoration:"line-through"}} >₹{regularPrice}</p>&nbsp;&nbsp;
               <p id = "product_discount_percentage_main" >Discount</p>
             </div>
             <p>Inclusive of taxes</p>
@@ -211,6 +207,7 @@ return(
       </div>
       
       {/* <!-- product details ends --> */}
+      <ToastContainer />
 
     </>
 )

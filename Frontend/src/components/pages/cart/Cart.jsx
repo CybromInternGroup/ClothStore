@@ -34,9 +34,6 @@ const Cart = () => {
     const selectedQuantity = quantities[product.id] || 1;
     const sizeQuantity = product.size ? product.size.quantity : 0; // Ensure size exists before accessing quantity
     return (
-    
-
-      
       <div key={product.id} id="cart-dom-clear">
         <div id="cart-push-prdt">
           <div id="cart-descr-img">
@@ -117,8 +114,9 @@ const Cart = () => {
 
        {mycart.length === 0 ? (
         <div id="empty-cart-container">
+          
           <img src={emptycart} alt="Empty Cart" />
-          {/* <p>Your cart is empty!</p> */}
+          <center><p>Your cart is empty!</p></center>
         </div>
         ) : (
       <div id="cartpage-total-div">

@@ -1,17 +1,26 @@
 import React, { useState } from "react";
 import "./payment.css";
+import  {ThreeDots} from 'react-loader-spinner';
+import { useNavigate } from "react-router-dom";
+import axios from "axios"
+import { useSelector } from "react-redux";
+
 
 const Payment = () => {
   const [selectedButton, setSelectedButton] = useState("payment-wallet");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const mycart = useSelector((state) => state.cartSlice.cart);
+  const totalAmount = mycart.reduce((total, item) => total + item.price, 0);
+
+  const Navigate = useNavigate();
 
   const handleButtonClick = (buttonId) => {
-    setSelectedButton(buttonId);
 
+    setSelectedButton(buttonId);
     // Additional logic based on the clicked button
     switch (buttonId) {
       case "payment-wallet-button":
-
-
       document.getElementById("payment-debit-button").style.backgroundColor = "whitesmoke";
       document.getElementById("payment-debit-button").style.borderLeft = "none";
       document.getElementById("payment-net-banking-button").style.backgroundColor = "whitesmoke";
@@ -42,7 +51,6 @@ const Payment = () => {
       document.getElementById("payment-net-banking").style.display = "none";
 
         break;
-
       case "payment-upi-button":
                document.getElementById("payment-debit-button").style.backgroundColor = "whitesmoke";
               document.getElementById("payment-debit-button").style.borderLeft = "none";
@@ -77,24 +85,52 @@ const Payment = () => {
       default:
         break;
     }
+
   };
 
-  const handleCardPayNowButtonClick = () => {
-    var person = prompt("Please enter your OTP");
-    // Handle OTP logic here
-  };
+  const handleCardPayNowButtonClick = async () => {
+    // Show loader
+    setIsLoading(true);
+  
+    try {
+      // Make a POST request to save order data
+      const response = await axios.post("http://localhost:5000/ordersave", {
+        orderamt:totalAmount, // Update with actual order amount value
+        // orderstatus: "your-orderstatus-value", // Update with actual order status value
+      });
+      console.log(response.date);
 
-
-    
+  
+      console.log("Order saved:", response.data); // Log the response data if needed
+  
+      // Simulate payment processing time (3 seconds)
+      setTimeout(() => {
+        // Navigate to payment done component
+        Navigate("/paymentdone"); // Update the path as per your route configuration
+      }, 3000); // 3 seconds
+    } catch (error) {
+      console.error("Error saving order:", error);
+      // Handle error if needed
+    }
+  };  
 
     return(
         <>
         
+        {isLoading
+         && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <ThreeDots type="Puff" color="#ffc107" height={100} width={100} />
+            </div>
+         </div>
+        )}
+    
     
     <div id="full">
     <div id="payment-price">
       <h2>Payment</h2>
-      <h2>Price ₹<span id="payment-amount">1048</span></h2>
+      <h2>Price ₹<span id="payment-amount">{totalAmount}</span></h2>
     </div>
     <div id = "payment-mode">
         <div id = "left-payment-mode">
