@@ -150,7 +150,7 @@ const toggleDropdowncat = () => {
             <motion.div className={match ? " hide" : " sideicons"}>
                 <input className="input2" type="text" id="searchinput" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
                 <FaSearch style={colorset?{color:"white"}:{color:"black"}} className="icon" id="searchicon" onClick={searchclick} onMouseOver={searchent} onMouseOut={searchout} />
-                <FaShoppingCart style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={cartfilled} />{itemLength}
+                <FaShoppingCart style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={cartfilled} />  <span style={colorset?{color:"white"}:{color:"black"}} className="cartSize">{itemLength}</span>
                 {isLogin ?  <CgProfile style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={toggleDropdown}/> : <IoMdLogIn style={colorset?{color:"white"}:{color:"black"}} className="icon" onClick={() => navigate("/login")} />}
             
                 {/* <div className="dropdown-container"> */}

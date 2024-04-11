@@ -7,6 +7,8 @@ import { addtocart,addToWishlist,removeFromWishlist } from "../../../slices/cart
 import { useSearch } from "../../../SearchContext";
 import noproduct from './img/noproduct6.png'
 import { FaHeart } from "react-icons/fa";
+import { IoIosArrowDropdown,IoIosArrowDropup } from "react-icons/io";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 const Product = ()=>{
 
@@ -244,7 +246,7 @@ const handleShowMore = () => {
           
               <i className="fas fa-chevron-circle-down"></i>
               <div className="hrline"></div>
-              <div className="sub_item">
+              <div className="sub_item" >
                 <ul>
                   {/* {brandsList.map((brand) => (
                     <li key={brand}>
@@ -257,28 +259,29 @@ const handleShowMore = () => {
                       <label htmlFor={`cb_${brand}`}>{brand}</label>
                     </li>
                   ))} */}
-                   {brandsList.slice(0, showAllBrands ? brandsList.length : 4).map((brandObj) => (
-                      <li key={brandObj._id}>
-                        <input
-                          type="checkbox"
-                          id={`cb_${brandObj._id}`}
-                          checked={selectedBrands.includes(brandObj.brand)}
-                          onChange={() => handleBrandFilter(brandObj.brand)}
-                        />
-                        <label htmlFor={`cb_${brandObj._id}`}>{brandObj.brand}</label>
-                      </li>
-                    ))}
-                                        {/* Conditionally render the "Show More" button */}
-                                        {!showAllBrands && brandsList.length > 4 && (
-                            <div className="show-more">
-                              <button onClick={handleShowMoreBrands}>Show More</button>
-                            </div>
-                          )}
-                          {showAllBrands && (
-                            <div className="show-more">
-                              <button onClick={handleShowMoreBrands}>Show Less</button>
-                            </div>
-                          )}
+                    {brandsList.slice(0, showAllBrands ? brandsList.length : 4).map((brandObj) => (
+                        <li key={brandObj._id}>
+                          <input
+                            type="checkbox"
+                            id={`cb_${brandObj._id}`}
+                            checked={selectedBrands.includes(brandObj.brand)}
+                            onChange={() => handleBrandFilter(brandObj.brand)}
+                          />
+                          <label htmlFor={`cb_${brandObj._id}`}>{brandObj.brand}</label>
+                        </li>
+                      ))}
+                                          {/* Conditionally render the "Show More" button */}
+                                          
+                          {!showAllBrands && brandsList.length > 4 && (
+                              <div className="show-more">
+                                <span onClick={handleShowMoreBrands}><IoIosArrowDropdown className="dropdown"/></span>
+                              </div>
+                            )}
+                            {showAllBrands && (
+                              <div className="show-more">
+                                <span onClick={handleShowMoreBrands}><IoIosArrowDropup className="dropdown"/></span>
+                              </div>
+                            )}
                 </ul>
               </div>
           

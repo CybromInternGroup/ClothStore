@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
+import  axios  from "axios";
 import "./home.css"
 import Slider from "../../slider/Slider";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
+import {  useDispatch } from "react-redux";
 import Chatbox from "../../chatbot/chatbot";
 import { scroller } from "react-scroll";
-
+import { addtocart } from "../../../slices/cartSlice";
 import chatbot from "../home/images/chatbot.png";
 import imgs2 from "../home/images/s2.webp"
 import imgs3 from "../home/images/s3.webp"
@@ -26,13 +28,34 @@ import ChatPopup from "../../chatbot/chatbot";
 const Home = ()=>{
 
   const [showChatbox, setShowChatbox] = useState(false);
+  const [proData,setProData] = useState([]); 
+
+  const dispatch = useDispatch();
 
   const toggleChatPopup = () => {
     setShowChatbox(!showChatbox);
   };
 
+  const  loadProductData= async ()=>{
+  
+    await axios.get("http://localhost:5000/AdminproductDisplay").then((res)=>{
+      console.log(res.data);
+      setProData(res.data)
+    }).catch((error)=>{
+      console.log("Error While Featching Data",error);
+    })
+  }
 
 
+  useEffect(()=>{
+    loadProductData()
+  })
+
+
+  
+  const myproductAdd=(id,name , description,category,price,regularPrice,images,size )=>{
+    dispatch(addtocart ({id:id ,name:name ,description:description,category:category,price:price,regularPrice:regularPrice,images:images,size:size} ))
+  }
 let currentIndex = 0;
 
   function showSlide(index) {
@@ -93,8 +116,8 @@ let currentIndex = 0;
 
     <div className="slider-container">
   <div className="slider">
-    <div className="slide"><img src={imgs2} alt="Image 2"/></div>
-    <div className="slide"><img src={imgs2} alt="Image 3"/></div>
+    <div className="slide"><img src={imgpro3} alt="Image 2"/></div>
+    <div className="slide"><img src={imgpro2} alt="Image 3"/></div>
     <div className="slide"><img src={imgs3} alt="Image 4"/></div>
     <div className="slide"><img src={imgs3} alt="Image 5"/></div>
     <div className="slide"><img src={imgpro2} alt="Image 6"/></div>
@@ -121,82 +144,20 @@ let currentIndex = 0;
 
 
 
-
-
 <div className="product-container">
+  {proData.slice(0, 6).map((product, index) => (
+    <div className="product-box" key={index}>
+      <div className="product-image"><img src={product.images[0]} width="300px" alt="product"/></div>
+      <div className="product-details">
+        <div className="product-title">{product.name}</div>
+        <p>{product.description}</p>
+        <div className="product-price" style={{fontSize:"22px"}}> Rs. {product.price}  &nbsp;&nbsp; <span style={{fontSize:"14px",textDecoration:"line-through",color:"red"}}>Rs. {product.regularPrice}</span> </div>
 
-  <div className="product-box">
-    <div className="product-image">< img  src={imgn1} width="300px"/></div>
-    <div className="product-details">
-      <div className="product-title">Allen Solly Men's T-Shirt</div>
-      <p>Best Tshit you ever worn</p>
-      <div className="product-price"><span style={{color: "red", margin: "10%"}}>20% OFF</span>Rs 250</div>
-       
-      <button className="buy-button">Buy Now</button>
-      <button className="buy-button">Add To Cart</button>
+        <button className="buy-button">Buy Now</button>
+        <button className="buy-button" onClick={()=>myproductAdd(product._id,product.name , product.description,product.category,product.price,product.regularPrice,product.images,product.size)}>Add To Cart</button>
+      </div>
     </div>
-  </div>
-
-  <div className="product-box">
-    <div className="product-image">< img  src={img3} width="300px"/></div>
-    <div className="product-details">
-      <div className="product-title">Allen Solly Men's T-Shirt</div>
-      <p>Best Tshit you ever worn</p>
-      <div className="product-price"><span style={{color: "red", margin: "10%"}}>20% OFF</span>Rs 250</div>
-       
-      <button className="buy-button">Buy Now</button>
-      <button className="buy-button">Add To Cart</button>
-    </div>
-  </div>
-
-  <div className="product-box">
-    <div className="product-image">< img  src={img4} width="300px"/></div>
-    <div className="product-details">
-      <div className="product-title">Allen Solly Men's T-Shirt</div>
-      <p>Best Tshit you ever worn</p>
-      <div className="product-price"><span style={{color: "red", margin: "10%"}}>20% OFF</span>Rs 250</div>
-       
-      <button className="buy-button">Buy Now</button>
-      <button className="buy-button">Add To Cart</button>
-    </div>
-  </div>
-
-  <div className="product-box">
-    <div className="product-image">< img  src={img5} width="300px"/></div>
-    <div className="product-details">
-      <div className="product-title">Allen Solly Men's T-Shirt</div>
-      <p>Best Tshit you ever worn</p>
-      <div className="product-price"><span style={{color: "red", margin: "10%"}}>20% OFF</span>Rs 250</div>
-       
-      <button className="buy-button">Buy Now</button>
-      <button className="buy-button">Add To Cart</button>
-    </div>
-  </div>
-
-  <div className="product-box">
-    <div className="product-image">< img  src={img6} width="300px"/></div>
-    <div className="product-details">
-      <div className="product-title">Allen Solly Men's T-Shirt</div>
-      <p>Best Tshit you ever worn</p>
-      <div className="product-price"><span style={{color: "red", margin: "10%"}}>20% OFF</span>Rs 250</div>
-       
-      <button className="buy-button">Buy Now</button>
-      <button className="buy-button">Add To Cart</button>
-    </div>
-  </div>
-
-  <div className="product-box">
-    <div className="product-image">< img  src={img7} width="300px"/></div>
-    <div className="product-details">
-      <div className="product-title">Allen Solly Men's T-Shirt</div>
-      <p>Best Tshit you ever worn</p>
-      <div className="product-price"><span style={{color: "red", margin: "10%"}}>20% OFF</span>Rs 250</div>
-       
-      <button className="buy-button">Buy Now</button>
-      <button className="buy-button">Add To Cart</button>
-    </div>
-  </div>
-
+  ))}
 </div>
 
 
@@ -206,27 +167,21 @@ let currentIndex = 0;
     < img  src={imgb3}alt="Banner Image" className="banner-image"/>
   </div>
   
-  <div className="main1" >
-
- 
-
-    <div className="container1"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img4}/> </div>
-    </div>
-    
-    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img5}/> </div>
-    </div>
-    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img6}/> </div>
-    </div>
-    
-    
-    <div className="container1"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img7}/> </div>
-    </div>
-    
-    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img5}/> </div>
-    </div>
-    <div className="container2"> <div className="card1"> <div className="circle"></div> <div className="content"> <h5>AS Fashion</h5> <p>Best Product you ever worn if you are its not for you baby skip please !!</p> <button>Buy Now</button> </div> < img  style={{width: "250px", height: "250px"}} src={img3}/> </div>
-    </div>
-    
+  <div className="main1">
+      {proData.slice(0, 6).map((product, index) => (
+        <div key={index} className={index % 2 === 0 ? "container1" : "container2"}>
+          <div className="card1">
+            <div className="circle"></div>
+            <div className="content">
+              <h2>{product.name}</h2>
+              <h3>{product.description}</h3>
+              <div  style={{fontSize:"22px"}}>Rs. {product.price}  <span style={{fontSize:"14px",textDecoration:"line-through",color:"red"}}>Rs. {product.regularPrice}</span></div> 
+              <button  onClick={()=>myproductAdd(product._id,product.name , product.description,product.category,product.price,product.regularPrice,product.images,product.size)}>Add To Cart</button>
+            </div>
+            <img style={{ width: "250px", height: "250px" }} src={product.images[0]} alt={`Product ${index + 1}`} />
+          </div>
+        </div>
+      ))}
     </div>
 
 

@@ -412,11 +412,12 @@ border: none;
 background-color: #FFC107;
 color: black;
 font-size: 14px;
+margin-top: 5px;
 border-radius: 4px
 }
 
 .content button:hover {
-background-color: blue
+background-color: #ffc107d4
 }
 
 .card1:hover .content {
@@ -426,15 +427,16 @@ opacity: 1
 /* YourComponent.css */
 
 .main1 {
-  
   display: grid;
+  /* overflow-y: hidden; */
   grid-template-columns: auto auto auto;
   margin-top: 10%;
   gap: 5rem;
- /* background-image: url(../home/images/sssurf.png); */
- background-image: linear-gradient(#fffefd, #fff2da);
- padding-bottom: 8%;
+  /* background-image: url(../home/images/sssurf.png); */
+  background-image: linear-gradient(#fffefd, #fff2da);
+  padding-bottom: 8%;
 }
+  
 @media screen and (max-width: 600px){
   .main1 {
   

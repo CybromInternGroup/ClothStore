@@ -1,5 +1,5 @@
 import Header from "./components/layout/Header";
-import { Route, Routes, Link, Router, } from "react-router-dom";
+import { Route, Routes, Link, Router } from "react-router-dom";
 import Home from "./components/pages/home/Home";
 import Products from "./components/pages/product/Product";
 // import Blogs from "./components/pages/Blogs";
@@ -21,54 +21,37 @@ import Error from "./components/pages/errorpage/Error";
 import Wishlist from "./components/pages/wishlist/wishlist";
 import PaymentDone from "./components/pages/paymentdone/paymentdone";
 
-
-
 const App = () => {
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route path={"/"} element={<Home />} />
 
+          <Route path={"/home"} element={<Home />} />
+          <Route path={"/Products"} element={<Products />} />
+          <Route path={"/About Us"} element={<AboutUs />} />
+          <Route path={"/cart"} element={<Cart />} />
+          <Route path={"/ordersummery"} element={<Ordersummery />} />
+          <Route path={"/payment"} element={<Payment />} />
+          <Route path={"/showproduct"} element={<Showproduct />} />
+          <Route path={"/homesider"} element={<Homesider />} />
+          <Route path={"/myaddress"} element={<Address />} />
+          <Route path={"/myorder"} element={<OrderPage />} />
+          <Route path={"/mypayment"} element={<ProfilePayment />} />
+          <Route path={"/myinfo"} element={<ProfileInfo />} />
+          <Route path={"/mywishlist"} element={<Wishlist />} />
+        </Route>
 
+        <Route path={"/login"} element={<Login />} />
+        <Route path={"/signup"} element={<Signup />} />
+        <Route path={"/testing"} element={<Tester />} />
+        <Route path={"/forgotpassword"} element={<Forgotpassword />} />
+        <Route path={"/paymentdone"} element={<PaymentDone />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </>
+  );
+};
 
-  return <>
-
-
-    <Routes>
-
-      <Route path="/" element={<Header />}>
-        <Route path={"/"} element={<Home />} />
-
-        <Route path={"/home"} element={<Home />} />
-        <Route path={"/Products"} element={<Products />} />
-        <Route path={"/About Us"} element={<AboutUs />} />
-        <Route path={"/cart"} element={<Cart/>}/>
-        <Route path={"/ordersummery"} element={<Ordersummery/>}/>
-        <Route path={"/payment"} element={<Payment/>}/>
-        <Route path={"/showproduct"} element={<Showproduct/>}/>
-        <Route path={"/homesider"} element={<Homesider/>}/>
-        <Route path={"/myaddress"} element={<Address/>}/>
-        <Route path={"/myorder"} element={<OrderPage/>}/>
-        <Route path={"/mypayment"} element={<ProfilePayment/>}/>
-        <Route path={"/myinfo"} element={<ProfileInfo/>}/>
-        <Route path={"/mywishlist"} element={<Wishlist/>}/>
-
-
-      </Route>
-
-      <Route path={"/login"} element={<Login />} />
-      <Route path={"/signup"} element={<Signup/>} />
-      <Route path={"/testing"} element={<Tester/>} />
-      <Route path = {"/forgotpassword"} element={<Forgotpassword/>} />
-      <Route path = {"/paymentdone"} element={<PaymentDone/>} />
-      <Route path="*" element={<Error/>}/>
-
-    </Routes>
-
-
-
-  </>
-
-
-
-
-
-}
-
-export default App;
+export default App;

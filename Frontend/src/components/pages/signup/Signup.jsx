@@ -68,8 +68,8 @@ const saveData =  async ()=>{
 
         }
         else{
-           alert(res.data.message)
-           toast.error("Something went worng")
+            toast.error("Enter Valid credentials")
+        //    toast.error("Something went worng")
 
         }
 
